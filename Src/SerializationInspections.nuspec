@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>ReSharper.SerializationInspections$PackageIdPostfix$</id>
+    <version>$Version$</version>
+    <title>Serialization Inspections$TitlePostfix$</title>
+    <authors>ulrichb</authors>
+    <projectUrl>https://github.com/ulrichb/SerializationInspections#readme</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Inspections for missing [Serializable] attributes / missing deserialization constructors on binary serializable types (+ quick fixes)</description>
+    <tags>serialization serializability iserializable binaryformatter inspection warning</tags>
+    <dependencies>
+      <dependency id="$DependencyId$" version="$DependencyVer$" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="SerializationInspections.Plugin\$BinDirInclude$\$Configuration$\SerializationInspections.Plugin.*" target="$TargetDir$" />
+  </files>
+</package>

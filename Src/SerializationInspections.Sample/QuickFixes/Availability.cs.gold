@@ -1,0 +1,20 @@
+﻿using System;
+
+namespace SerializationInspections.Sample.QuickFixes
+{
+    public class |ExceptionClassWithoutSerializableAttribute|(0) : Exception
+    {
+    }
+
+    [Serializable]
+    public class |ExceptionClassWithSerializableAttributeButNoDeserializationConstructor|(1) : Exception
+    {
+    }
+}
+------------------------------------------------
+0: Exceptions should be marked with the [Serializable] attribute
+QUICKFIXES:
+Add [Serializable] attribute
+1: Missing deserialization constructor
+QUICKFIXES:
+Create deserialization constructor

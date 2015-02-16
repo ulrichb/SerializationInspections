@@ -1,0 +1,28 @@
+﻿using System;
+using System.Runtime.Serialization;
+
+namespace SerializationInspections.Sample.QuickFixes.MissingDeserializationConstructorQuickFix
+{
+  public class CustomSerializableWithPrivateDeserializationConstructorBase
+  {
+    protected CustomSerializableWithPrivateDeserializationConstructorBase()
+    {
+    }
+
+    private CustomSerializableWithPrivateDeserializationConstructorBase(SerializationInfo info, StreamingContext context)
+    {
+    }
+  }
+
+  [Serializable]
+  public class CustomSerializableWithPrivateDeserializationConstructorInBase : CustomSerializableWithPrivateDeserializationConstructorBase, ISerializable
+  {
+    protected CustomSerializableWithPrivateDeserializationConstructorInBase{caret}(SerializationInfo info, StreamingContext context) : base(info, context)
+    {
+    }
+
+    public void GetObjectData(SerializationInfo info, StreamingContext context)
+    {
+    }
+  }
+}
