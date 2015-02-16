@@ -1,0 +1,17 @@
+﻿using System;
+using System.Runtime.Serialization;
+
+namespace SerializationInspections.Sample.QuickFixes.MissingDeserializationConstructorQuickFix
+{
+  [Serializable]
+  public class CustomSerializable : ISerializable
+  {
+    protected CustomSerializable{caret}(SerializationInfo info, StreamingContext context)
+    {
+    }
+
+    public void GetObjectData(SerializationInfo info, StreamingContext context)
+    {
+    }
+  }
+}

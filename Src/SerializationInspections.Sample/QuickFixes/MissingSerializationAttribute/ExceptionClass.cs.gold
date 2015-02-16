@@ -1,0 +1,9 @@
+﻿using System;
+
+namespace SerializationInspections.Sample.QuickFixes.MissingSerializationAttribute
+{
+  [Serializable]
+  public class ExceptionClass{caret} : Exception
+  {
+  }
+}

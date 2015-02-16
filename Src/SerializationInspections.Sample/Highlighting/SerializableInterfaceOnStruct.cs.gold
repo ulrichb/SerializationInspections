@@ -1,0 +1,35 @@
+﻿using System;
+using System.Runtime.Serialization;
+
+namespace SerializationInspections.Sample.Highlighting
+{
+    [Serializable]
+    public struct CustomSerializableStructWitDeserializationConstructor : ISerializable
+    {
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+        }
+
+        private CustomSerializableStructWitDeserializationConstructor(SerializationInfo info, StreamingContext context)
+        {
+        }
+    }
+
+    [Serializable]
+    public struct |CustomSerializableStructWithoutDeserializationConstructor|(0) : ISerializable
+    {
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+        }
+    }
+
+    public struct |CustomSerializableStructWithoutSerializableAttributeAndDeserializationConstructor|(1) : ISerializable
+    {
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+        }
+    }
+}
+---------------------------------------------------------
+(0): ReSharper Warning: Missing deserialization constructor
+(1): ReSharper Warning: A type implementing ISerializable should be marked with the [Serializable] attribute

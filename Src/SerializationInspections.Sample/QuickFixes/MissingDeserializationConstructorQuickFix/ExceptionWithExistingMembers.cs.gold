@@ -1,0 +1,25 @@
+﻿using System;
+using System.Runtime.Serialization;
+
+namespace SerializationInspections.Sample.QuickFixes.MissingDeserializationConstructorQuickFix
+{
+  [Serializable]
+  public class ExceptionWithExistingMembers : Exception
+  {
+    public int ExistingField;
+
+    public ExceptionWithExistingMembers()
+    {
+    }
+
+    protected ExceptionWithExistingMembers{caret}(SerializationInfo info, StreamingContext context) : base(info, context)
+    {
+    }
+
+    public int ExistingProperty { get; set; }
+
+    private void ExistingMethod()
+    {
+    }
+  }
+}

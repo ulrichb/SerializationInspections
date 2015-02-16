@@ -1,0 +1,30 @@
+﻿using System;
+using System.Runtime.Serialization;
+
+namespace SerializationInspections.Sample.Highlighting
+{
+    [Serializable]
+    public abstract class ExceptionBase : Exception
+    {
+        protected ExceptionBase()
+        {
+        }
+
+        protected ExceptionBase(SerializationInfo info, StreamingContext context)
+            : base(info, context)
+        {
+        }
+    }
+
+    [Serializable]
+    public class |DerivedFromExceptionBaseWithSerializationAttributeButNoDeserializationConstructor|(0) : ExceptionBase
+    {
+    }
+
+    public class |DerivedFromExceptionBaseWithoutSerializationAttribute|(1) : ExceptionBase
+    {
+    }
+}
+---------------------------------------------------------
+(0): ReSharper Warning: Missing deserialization constructor
+(1): ReSharper Warning: Exceptions should be marked with the [Serializable] attribute
