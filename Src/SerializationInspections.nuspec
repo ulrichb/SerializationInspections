@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>ReSharper.SerializationInspections$PackageIdPostfix$</id>
+    <id>ReSharper.SerializationInspections</id>
     <version>$Version$</version>
-    <title>Serialization Inspections$TitlePostfix$</title>
+    <title>Serialization Inspections</title>
     <authors>ulrichb</authors>
     <projectUrl>https://github.com/ulrichb/SerializationInspections#readme</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

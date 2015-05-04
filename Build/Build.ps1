@@ -8,6 +8,8 @@ Param(
 
 Set-StrictMode -Version 2.0; $ErrorActionPreference = "Stop"; $ConfirmPreference = "None"
 
+. Shared\Build\BuildFunctions
+
 $BuildOutputPath = "Build\Output"
 $SolutionFile = "SerializationInspections.sln"
 $AssemblyVersionFilePath = "Src\SerializationInspections.Plugin\Properties\AssemblyInfo.cs"
@@ -15,17 +17,17 @@ $MSBuildPath = "${env:ProgramFiles(x86)}\MSBuild\12.0\Bin\MSBuild.exe"
 $NUnitExecutable = "nunit-console-x86.exe"
 $NUnitTestAssemblyPaths = @(
     "Src\SerializationInspections.Plugin.Tests\bin.R82\$Configuration\SerializationInspections.Plugin.Tests.dll",
+    "Src\SerializationInspections.Plugin.Tests\bin.R91\$Configuration\SerializationInspections.Plugin.Tests.dll",
     "Src\SerializationInspections.Sample\bin\$Configuration\SerializationInspections.Sample.dll"
 )
 $NUnitFrameworkVersion = "net-4.5"
 $NuspecPath = "Src\SerializationInspections.nuspec"
+$PackageBaseVersion = StripLastPartFromVersion $Version
 $NugetPackProperties = @(
-    "Configuration=$Configuration;DependencyId=ReSharper;DependencyVer=[8.2,8.3);PackageIdPostfix=;TitlePostfix=;BinDirInclude=bin.R82;TargetDir=ReSharper\v8.2\plugins",
-    "Configuration=$Configuration;DependencyId=Wave;DependencyVer=[1.0];PackageIdPostfix=.Wave01;TitlePostfix= for ReSharper 9;BinDirInclude=bin.R90;TargetDir=dotFiles"
+    "Version=$PackageBaseVersion.82;Configuration=$Configuration;DependencyId=ReSharper;DependencyVer=[8.2,8.3);BinDirInclude=bin.R82;TargetDir=ReSharper\v8.2\plugins",
+    "Version=$PackageBaseVersion.91;Configuration=$Configuration;DependencyId=Wave;DependencyVer=[2.0];BinDirInclude=bin.R91;TargetDir=dotFiles"
 )
 $NugetPushServer = "https://www.myget.org/F/ulrichb/api/v2/package"
-
-. Shared\Build\BuildFunctions
 
 Clean
 PackageRestore
