@@ -1,9 +1,17 @@
 ﻿using System;
+using NUnit.Framework;
+using SerializationInspections.Plugin.Highlighting;
+#if RESHARPER8
 using JetBrains.Application.Settings;
 using JetBrains.ReSharper.Daemon;
 using JetBrains.ReSharper.Daemon.CSharp;
-using NUnit.Framework;
-using SerializationInspections.Plugin.Highlighting;
+
+#else
+using JetBrains.ReSharper.Feature.Services.Daemon;
+using JetBrains.ReSharper.FeaturesTestFramework.Daemon;
+using JetBrains.ReSharper.Psi;
+
+#endif
 
 namespace SerializationInspections.Plugin.Tests.IntegrationTests
 {
@@ -14,7 +22,11 @@ namespace SerializationInspections.Plugin.Tests.IntegrationTests
             get { return "Highlighting"; }
         }
 
+#if RESHARPER8
         protected override bool HighlightingPredicate(IHighlighting highlighting, IContextBoundSettingsStore settingsStore)
+#else
+        protected override bool HighlightingPredicate(IHighlighting highlighting, IPsiSourceFile sourceFile)
+#endif
         {
             return highlighting is SerializationHighlightingBase;
         }

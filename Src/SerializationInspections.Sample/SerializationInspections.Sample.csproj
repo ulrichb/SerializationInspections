@@ -57,6 +57,7 @@
     <Compile Include="Highlighting\ExceptionHierarchy.cs" />
     <Compile Include="Highlighting\Exception.cs" />
     <Compile Include="QuickFixes\Availability.cs" />
+    <None Include="nuget.config" />
     <None Include="QuickFixes\MissingDeserializationConstructorQuickFix\CustomSerializable.cs" />
     <None Include="QuickFixes\MissingDeserializationConstructorQuickFix\CustomSerializableWithPrivateDeserializationConstructorInBase.cs.gold" />
     <None Include="QuickFixes\MissingDeserializationConstructorQuickFix\CustomSerializableStruct.cs" />
