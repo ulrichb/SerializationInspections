@@ -41,7 +41,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework">
-      <HintPath>..\..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+      <HintPath>..\..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -58,6 +58,7 @@
     <Compile Include="Highlighting\Exception.cs" />
     <Compile Include="QuickFixes\Availability.cs" />
     <None Include="nuget.config" />
+    <None Include="packages.config" />
     <None Include="QuickFixes\MissingDeserializationConstructorQuickFix\CustomSerializable.cs" />
     <None Include="QuickFixes\MissingDeserializationConstructorQuickFix\CustomSerializableWithPrivateDeserializationConstructorInBase.cs.gold" />
     <None Include="QuickFixes\MissingDeserializationConstructorQuickFix\CustomSerializableStruct.cs" />
@@ -88,9 +89,6 @@
     <None Include="Highlighting\SerializableInterfaceHierarchy.cs.gold" />
     <None Include="Highlighting\SerializableInterfaceOnStruct.cs.gold" />
     <None Include="QuickFixes\MissingSerializationAttribute\ExceptionWithExistingAttributes.cs.gold" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
