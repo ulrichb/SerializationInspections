@@ -6,6 +6,7 @@
     <title>Serialization Inspections</title>
     <authors>ulrichb</authors>
     <projectUrl>https://github.com/ulrichb/SerializationInspections#readme</projectUrl>
+    <licenseUrl>https://github.com/ulrichb/SerializationInspections/blob/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Inspections for missing [Serializable] attributes / missing deserialization constructors on binary serializable types (+ quick fixes)</description>
     <tags>serialization serializability iserializable binaryformatter inspection warning</tags>
