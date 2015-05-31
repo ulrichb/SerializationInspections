@@ -54,9 +54,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Highlighting\NoMsCorLib\NoMsCorlib.cs" />
+    <None Include="Highlighting\NoMsCorLib\NoMsCorlib.cs.gold" />
+    <None Include="Highlighting\NoMsCorLib\NoMsCorlibButOwnSerializableAttribute.cs" />
     <Compile Include="Highlighting\ExceptionHierarchy.cs" />
     <Compile Include="Highlighting\Exception.cs" />
     <Compile Include="QuickFixes\Availability.cs" />
+    <None Include="Highlighting\NoMsCorLib\NoMsCorlibButOwnSerializableAttribute.cs.gold" />
     <None Include="nuget.config" />
     <None Include="packages.config" />
     <None Include="QuickFixes\MissingDeserializationConstructorQuickFix\CustomSerializable.cs" />

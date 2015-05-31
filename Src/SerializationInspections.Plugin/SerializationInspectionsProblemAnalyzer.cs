@@ -26,10 +26,10 @@ namespace SerializationInspections.Plugin
     /// <summary>
     /// A problem analyzer for the serialization inspections.
     /// </summary>
-    [ElementProblemAnalyzer(typeof(ITypeDeclaration), HighlightingTypes = new[] { typeof(MissingDeserializationConstructorHighlighting) })]
+    [ElementProblemAnalyzer(typeof (ITypeDeclaration), HighlightingTypes = new[] {typeof (MissingDeserializationConstructorHighlighting)})]
     public class SerializationInspectionsProblemAnalyzer : ElementProblemAnalyzer<ITypeDeclaration>
     {
-        private static readonly ILogger Log = Logger.GetLogger(typeof(SerializationInspectionsProblemAnalyzer));
+        private static readonly ILogger Log = Logger.GetLogger(typeof (SerializationInspectionsProblemAnalyzer));
 
         public SerializationInspectionsProblemAnalyzer()
         {
@@ -60,25 +60,32 @@ namespace SerializationInspections.Plugin
         {
             if (typeElement != null)
             {
-                var hasSerializableAttribute = typeElement.HasAttributeInstance(PredefinedType.SERIALIZABLE_ATTRIBUTE_CLASS, inherit: false);
+                var serializableAttributeTypeName = PredefinedType.SERIALIZABLE_ATTRIBUTE_CLASS;
+                var serializableAttributeType = serializableAttributeTypeName.CreateTypeInContextOf(declaration);
 
-                if (!hasSerializableAttribute)
+                // Test if the SerializableAttribute is resolvable (e.g. not the case for Windows Phone targets)
+                if (serializableAttributeType.GetTypeElement() != null)
                 {
-                    if (IsException(typeElement))
-                    {
-                        yield return new MissingSerializationAttributeHighlighting(declaration, "Exceptions");
-                    }
-                    else if (IsImplementingSerializableInterface(typeElement) && !(typeElement is IInterface))
-                    {
-                        yield return new MissingSerializationAttributeHighlighting(declaration, "A type implementing ISerializable");
-                    }
-                }
+                    var hasSerializableAttribute = typeElement.HasAttributeInstance(serializableAttributeTypeName, inherit: false);
 
-                if (hasSerializableAttribute && IsSerializable(typeElement) && !(typeElement is IDelegate))
-                {
-                    if (!SerializationUtilities.HasDeserializationConstructor(typeElement))
+                    if (!hasSerializableAttribute)
                     {
-                        yield return new MissingDeserializationConstructorHighlighting(declaration);
+                        if (IsException(typeElement))
+                        {
+                            yield return new MissingSerializationAttributeHighlighting(declaration, "Exceptions");
+                        }
+                        else if (IsImplementingSerializableInterface(typeElement) && !(typeElement is IInterface))
+                        {
+                            yield return new MissingSerializationAttributeHighlighting(declaration, "A type implementing ISerializable");
+                        }
+                    }
+
+                    if (hasSerializableAttribute && IsSerializable(typeElement) && !(typeElement is IDelegate))
+                    {
+                        if (!SerializationUtilities.HasDeserializationConstructor(typeElement))
+                        {
+                            yield return new MissingDeserializationConstructorHighlighting(declaration);
+                        }
                     }
                 }
             }

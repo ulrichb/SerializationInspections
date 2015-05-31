@@ -53,8 +53,8 @@ namespace SerializationInspections.Plugin.Quickfixes
             {
                 var elementFactory = CSharpElementFactory.GetInstance(attributesOwnerDeclaration, applyCodeFormatter: true);
 
-                var type = PredefinedType.SERIALIZABLE_ATTRIBUTE_CLASS.CreateTypeInContextOf(attributesOwnerDeclaration);
-                var attribute = elementFactory.CreateAttribute(type.GetTypeElement());
+                var serializableAttributeType = PredefinedType.SERIALIZABLE_ATTRIBUTE_CLASS.CreateTypeInContextOf(attributesOwnerDeclaration);
+                var attribute = elementFactory.CreateAttribute(serializableAttributeType.GetTypeElement().NotNull());
 
                 attributesOwnerDeclaration.AddAttributeAfter(attribute, null);
             }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using JetBrains.ReSharper.TestFramework;
 using NUnit.Framework;
 using SerializationInspections.Plugin.Highlighting;
 #if RESHARPER8
@@ -15,7 +17,7 @@ using JetBrains.ReSharper.Psi;
 
 namespace SerializationInspections.Plugin.Tests.IntegrationTests
 {
-    public class HighlightingTests : CSharpHighlightingTestNet4Base
+    public class HighlightingTests : CSharpHighlightingTestBase
     {
         protected override string RelativeTestDataPath
         {
@@ -31,40 +33,65 @@ namespace SerializationInspections.Plugin.Tests.IntegrationTests
             return highlighting is SerializationHighlightingBase;
         }
 
-        [Test]
-        public void TestException()
+        [TestNetFramework4]
+        public class Default : HighlightingTests
         {
-            DoNamedTest2();
+            [Test]
+            public void TestException()
+            {
+                DoNamedTest2();
+            }
+
+            [Test]
+            public void TestExceptionHierarchy()
+            {
+                DoNamedTest2();
+            }
+
+            [Test]
+            public void TestSerializableInterface()
+            {
+                DoNamedTest2();
+            }
+
+            [Test]
+            public void TestSerializableInterfaceHierarchy()
+            {
+                DoNamedTest2();
+            }
+
+            [Test]
+            public void TestSerializableInterfaceOnStruct()
+            {
+                DoNamedTest2();
+            }
+
+            [Test]
+            public void TestOtherUnaffectedTypes()
+            {
+                DoNamedTest2();
+            }
         }
 
-        [Test]
-        public void TestExceptionHierarchy()
+        [ExcludeMsCorLib]
+        public class NoMsCorLib : HighlightingTests
         {
-            DoNamedTest2();
-        }
+            protected override string RelativeTestDataPath
+            {
+                get { return Path.Combine(base.RelativeTestDataPath, "NoMsCorLib"); }
+            }
 
-        [Test]
-        public void TestSerializableInterface()
-        {
-            DoNamedTest2();
-        }
+            [Test]
+            public void TestNoMsCorlib()
+            {
+                DoNamedTest2();
+            }
 
-        [Test]
-        public void TestSerializableInterfaceHierarchy()
-        {
-            DoNamedTest2();
-        }
-
-        [Test]
-        public void TestSerializableInterfaceOnStruct()
-        {
-            DoNamedTest2();
-        }
-
-        [Test]
-        public void TestOtherUnaffectedTypes()
-        {
-            DoNamedTest2();
+            [Test]
+            public void TestNoMsCorlibButOwnSerializableAttribute()
+            {
+                DoNamedTest2();
+            }
         }
     }
 }

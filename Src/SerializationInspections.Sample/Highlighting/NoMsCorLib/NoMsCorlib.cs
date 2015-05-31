@@ -1,0 +1,15 @@
+﻿using System.Runtime.Serialization;
+
+namespace System.Runtime.Serialization
+{
+    public interface ISerializable
+    {
+    }
+}
+
+namespace SerializationInspections.Sample.Highlighting
+{
+    public class CustomSerializable : ISerializable
+    {
+    }
+}
