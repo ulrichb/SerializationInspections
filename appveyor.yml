@@ -5,7 +5,8 @@ environment:
 cache:
   - packages
   - Src\SerializationInspections.Plugin.Tests\Packages
-
+artifacts:
+  - path: Build\Output\TestCoverage
 install:
   - git submodule update --init --recursive
 build_script:

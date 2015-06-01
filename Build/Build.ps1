@@ -21,6 +21,7 @@ $NUnitTestAssemblyPaths = @(
     "Src\SerializationInspections.Sample\bin\$Configuration\SerializationInspections.Sample.dll"
 )
 $NUnitFrameworkVersion = "net-4.5"
+$TestCoverageFilter = "+[SerializationInspections*]* -[SerializationInspections*]ReSharperExtensionsShared.* -[SerializationInspections.Sample]*"
 $NuspecPath = "Src\SerializationInspections.nuspec"
 $PackageBaseVersion = StripLastPartFromVersion $Version
 $NugetPackProperties = @(
