@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SerializationInspections.Plugin</RootNamespace>
-    <AssemblyName>SerializationInspections.Plugin</AssemblyName>
+    <AssemblyName>SerializationInspections.Plugin.R82</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseIntermediateOutputPath>obj.R82\</BaseIntermediateOutputPath>
@@ -61,7 +61,6 @@
     <Compile Include="Infrastructure\SerializationUtilities.cs" />
     <Compile Include="Quickfixes\MissingDeserializationConstructorQuickFix.cs" />
     <Compile Include="Quickfixes\MissingSerializationAttributeQuickFix.cs" />
-    <Compile Include="ZoneMarker.cs" />
     <Compile Include="SerializationInspectionsProblemAnalyzer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
