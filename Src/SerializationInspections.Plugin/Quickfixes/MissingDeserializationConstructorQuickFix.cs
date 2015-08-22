@@ -119,9 +119,7 @@ namespace SerializationInspections.Plugin.Quickfixes
             if (declaredClass == null)
                 return false;
 
-            var superClass = declaredClass.GetSuperClass();
-            if (superClass == null)
-                return false;
+            var superClass = declaredClass.GetSuperClass().NotNull("It's unexpected that the highlighting is displayed on System.Object");
 
             // NOTE: Yes, this will also return true if the base deserialization constructor is private/internal (which means that 
             // there is probably an issue). But it may be better to leave non-compilable code than having the missing base call.
