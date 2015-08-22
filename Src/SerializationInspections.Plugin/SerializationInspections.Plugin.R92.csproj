@@ -161,8 +161,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\Shared\Src\ReSharperExtensionsShared\DebugUtilities.cs">
-      <Link>ReSharperExtensionsShared\DebugUtilities.cs</Link>
+    <Compile Include="..\..\Shared\Src\ReSharperExtensionsShared\Debugging\DebugUtility.cs">
+      <Link>ReSharperExtensionsShared\DebugUtility.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shared\Src\ReSharperExtensionsShared\Highlighting\SimpleTreeNodeHighlightingBase.cs">
+      <Link>ReSharperExtensionsShared\SimpleTreeNodeHighlightingBase.cs</Link>
     </Compile>
     <Compile Include="Highlighting\MissingDeserializationConstructorHighlighting.cs" />
     <Compile Include="Highlighting\MissingSerializationAttributeHighlighting.cs" />

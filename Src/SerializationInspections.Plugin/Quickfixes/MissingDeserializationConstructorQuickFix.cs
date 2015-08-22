@@ -37,7 +37,7 @@ namespace SerializationInspections.Plugin.Quickfixes
 
         public override bool IsAvailable(IUserDataHolder cache)
         {
-            return GetValidClassLikeDeclaration(_highlighting.TypeDeclaration) != null;
+            return GetValidClassLikeDeclaration(_highlighting.TreeNode) != null;
         }
 
         public override string Text
@@ -47,7 +47,7 @@ namespace SerializationInspections.Plugin.Quickfixes
 
         protected override Action<ITextControl> ExecutePsiTransaction(ISolution solution, IProgressIndicator progress)
         {
-            var classLikeDeclaration = GetValidClassLikeDeclaration(_highlighting.TypeDeclaration);
+            var classLikeDeclaration = GetValidClassLikeDeclaration(_highlighting.TreeNode);
 
             if (classLikeDeclaration != null)
             {

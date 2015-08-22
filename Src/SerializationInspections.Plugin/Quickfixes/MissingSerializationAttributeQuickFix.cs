@@ -37,7 +37,7 @@ namespace SerializationInspections.Plugin.Quickfixes
 
         public override bool IsAvailable(IUserDataHolder cache)
         {
-            return GetValidAttributesOwnerDeclaration(_highlighting.TypeDeclaration) != null;
+            return GetValidAttributesOwnerDeclaration(_highlighting.TreeNode) != null;
         }
 
         public override string Text
@@ -47,7 +47,7 @@ namespace SerializationInspections.Plugin.Quickfixes
 
         protected override Action<ITextControl> ExecutePsiTransaction(ISolution solution, IProgressIndicator progress)
         {
-            var attributesOwnerDeclaration = GetValidAttributesOwnerDeclaration(_highlighting.TypeDeclaration);
+            var attributesOwnerDeclaration = GetValidAttributesOwnerDeclaration(_highlighting.TreeNode);
 
             if (attributesOwnerDeclaration != null)
             {

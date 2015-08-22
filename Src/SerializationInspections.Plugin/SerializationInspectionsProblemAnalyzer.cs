@@ -9,7 +9,7 @@ using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.Tree;
 using JetBrains.Util;
 using JetBrains.Util.Logging;
-using ReSharperExtensionsShared;
+using ReSharperExtensionsShared.Debugging;
 using SerializationInspections.Plugin.Highlighting;
 using SerializationInspections.Plugin.Infrastructure;
 #if RESHARPER8
@@ -49,10 +49,10 @@ namespace SerializationInspections.Plugin
             highlightingResults.ForEach(x => consumer.AddHighlighting(x));
 
 #if DEBUG
-            var message = DebugUtilities.FormatIncludingContext(typeElement) + " => ["
+            var message = DebugUtility.FormatIncludingContext(typeElement) + " => ["
                           + string.Join(", ", highlightingResults.Select(x => x.GetType().Name)) + "]";
 
-            Log.LogMessage(LoggingLevel.VERBOSE, DebugUtilities.FormatWithElapsed(message, stopwatch));
+            Log.LogMessage(LoggingLevel.VERBOSE, DebugUtility.FormatWithElapsed(message, stopwatch));
 #endif
         }
 

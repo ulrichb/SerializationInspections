@@ -22,19 +22,12 @@ namespace SerializationInspections.Plugin.Highlighting
     /// <summary>
     /// A highlighting for missing serialization attributes.
     /// </summary>
-    [ConfigurableSeverityHighlighting(
-        SeverityId,
-        "CSHARP",
-        OverlapResolve = OverlapResolveKind.WARNING,
-        ToolTipFormatString = Message)]
+    [ConfigurableSeverityHighlighting(SeverityId, "CSHARP", OverlapResolve = OverlapResolveKind.WARNING, ToolTipFormatString = Message)]
     public class MissingSerializationAttributeHighlighting : SerializationHighlightingBase
     {
         public const string SeverityId = "MissingSerializationAttribute";
-
-        private const string Message = "{0} should be marked with the [Serializable] attribute";
-
         public const string Title = "Missing [Serializable] attribute";
-
+        private const string Message = "{0} should be marked with the [Serializable] attribute";
         public const string Description = Title;
 
         public MissingSerializationAttributeHighlighting([NotNull] ITypeDeclaration typeDeclaration, [NotNull] string elementDescription)

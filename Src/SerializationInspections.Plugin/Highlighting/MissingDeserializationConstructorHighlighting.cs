@@ -22,19 +22,12 @@ namespace SerializationInspections.Plugin.Highlighting
     /// <summary>
     /// A highlighting for missing deserialization constructors.
     /// </summary>
-    [ConfigurableSeverityHighlighting(
-        SeverityId,
-        "CSHARP",
-        OverlapResolve = OverlapResolveKind.WARNING,
-        ToolTipFormatString = Message)]
+    [ConfigurableSeverityHighlighting(SeverityId, "CSHARP", OverlapResolve = OverlapResolveKind.WARNING, ToolTipFormatString = Message)]
     public class MissingDeserializationConstructorHighlighting : SerializationHighlightingBase
     {
         public const string SeverityId = "MissingDeserializationConstructor";
-
-        private const string Message = "Missing deserialization constructor";
-
         public const string Title = "Missing deserialization constructor";
-
+        private const string Message = "Missing deserialization constructor";
         public const string Description = Title;
 
         public MissingDeserializationConstructorHighlighting([NotNull] ITypeDeclaration typeDeclaration)
