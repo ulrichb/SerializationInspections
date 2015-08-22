@@ -14,7 +14,7 @@ namespace SerializationInspections.Sample.Highlighting.Tests
                 binaryFormatter.Serialize(ms, input);
 
                 ms.Seek(0, SeekOrigin.Begin);
-                return (T)binaryFormatter.Deserialize(ms);
+                return (T) binaryFormatter.Deserialize(ms);
             }
         }
     }
