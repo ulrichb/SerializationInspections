@@ -3,6 +3,7 @@ using System;
 using JetBrains.Annotations;
 using JetBrains.Application.Progress;
 using JetBrains.ProjectModel;
+using JetBrains.ReSharper.Intentions.Util;
 using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.CSharp;
 using JetBrains.ReSharper.Psi.CSharp.Tree;
@@ -42,7 +43,7 @@ namespace SerializationInspections.Plugin.Quickfixes
 
         public override string Text
         {
-            get { return string.Format("Add [Serializable] attribute"); }
+            get { return "Add [Serializable] attribute"; }
         }
 
         protected override Action<ITextControl> ExecutePsiTransaction(ISolution solution, IProgressIndicator progress)
@@ -65,7 +66,7 @@ namespace SerializationInspections.Plugin.Quickfixes
         [CanBeNull]
         private IAttributesOwnerDeclaration GetValidAttributesOwnerDeclaration([NotNull] ITypeDeclaration typeDeclaration)
         {
-            if (!typeDeclaration.IsValid())
+            if (!ValidUtils.Valid(typeDeclaration))
                 return null;
 
             return typeDeclaration as IAttributesOwnerDeclaration;

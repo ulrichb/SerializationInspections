@@ -1,17 +1,17 @@
 ﻿using NUnit.Framework;
 using SerializationInspections.Plugin.Quickfixes;
-
 #if RESHARPER8
-using JetBrains.ReSharper.IntentionsTests;
+using JetBrains.ReSharper.Intentions.CSharp.QuickFixes.Tests;
 
 #else
 using JetBrains.ReSharper.FeaturesTestFramework.Intentions;
+
 #endif
 
 namespace SerializationInspections.Plugin.Tests.IntegrationTests
 {
     [TestFixture]
-    public class MissingDeserializationConstructorQuickFixTest : QuickFixTestBase<MissingDeserializationConstructorQuickFix>
+    public class MissingDeserializationConstructorQuickFixTest : CSharpQuickFixTestBase<MissingDeserializationConstructorQuickFix>
     {
         protected override string RelativeTestDataPath
         {

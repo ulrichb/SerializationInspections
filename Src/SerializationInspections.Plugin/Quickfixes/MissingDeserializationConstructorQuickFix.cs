@@ -2,6 +2,7 @@
 using JetBrains.Annotations;
 using JetBrains.Application.Progress;
 using JetBrains.ProjectModel;
+using JetBrains.ReSharper.Intentions.Util;
 using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.CSharp;
 using JetBrains.ReSharper.Psi.CSharp.Tree;
@@ -42,7 +43,7 @@ namespace SerializationInspections.Plugin.Quickfixes
 
         public override string Text
         {
-            get { return string.Format("Create deserialization constructor"); }
+            get { return "Create deserialization constructor"; }
         }
 
         protected override Action<ITextControl> ExecutePsiTransaction(ISolution solution, IProgressIndicator progress)
@@ -68,7 +69,7 @@ namespace SerializationInspections.Plugin.Quickfixes
         [CanBeNull]
         private IClassLikeDeclaration GetValidClassLikeDeclaration([NotNull] ITypeDeclaration typeDeclaration)
         {
-            if (!typeDeclaration.IsValid())
+            if (!ValidUtils.Valid(typeDeclaration))
                 return null;
 
             return typeDeclaration as IClassLikeDeclaration;
