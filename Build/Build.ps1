@@ -11,7 +11,7 @@ Set-StrictMode -Version 2.0; $ErrorActionPreference = "Stop"; $ConfirmPreference
 . Shared\Build\BuildFunctions
 
 $BuildOutputPath = "Build\Output"
-$SolutionFile = "SerializationInspections.sln"
+$SolutionFilePath = "SerializationInspections.sln"
 $AssemblyVersionFilePath = "Src\SerializationInspections.Plugin\Properties\AssemblyInfo.cs"
 $MSBuildPath = "${env:ProgramFiles(x86)}\MSBuild\12.0\Bin\MSBuild.exe"
 $NUnitExecutable = "nunit-console-x86.exe"
@@ -34,7 +34,6 @@ $NugetPushServer = "https://www.myget.org/F/ulrichb/api/v2/package"
 
 Clean
 PackageRestore
-UpdateAssemblyVersion
 Build
 Test
 NugetPack
