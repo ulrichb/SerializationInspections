@@ -13,7 +13,7 @@ Set-StrictMode -Version 2.0; $ErrorActionPreference = "Stop"; $ConfirmPreference
 $BuildOutputPath = "Build\Output"
 $SolutionFilePath = "SerializationInspections.sln"
 $AssemblyVersionFilePath = "Src\SerializationInspections.Plugin\Properties\AssemblyInfo.cs"
-$MSBuildPath = "${env:ProgramFiles(x86)}\MSBuild\12.0\Bin\MSBuild.exe"
+$MSBuildPath = "${env:ProgramFiles(x86)}\MSBuild\14.0\Bin\MSBuild.exe"
 $NUnitExecutable = "nunit-console-x86.exe"
 $NUnitTestAssemblyPaths = @(
     "Src\SerializationInspections.Plugin.Tests\bin.R82\$Configuration\SerializationInspections.Plugin.Tests.R82.dll",
