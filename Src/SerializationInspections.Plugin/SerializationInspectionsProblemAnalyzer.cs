@@ -33,7 +33,7 @@ namespace SerializationInspections.Plugin
 
         public SerializationInspectionsProblemAnalyzer()
         {
-            Log.LogMessage(LoggingLevel.INFO, ".ctor");
+            Log.Verbose(".ctor");
         }
 
         protected override void Run(ITypeDeclaration element, ElementProblemAnalyzerData data, IHighlightingConsumer consumer)
@@ -52,7 +52,7 @@ namespace SerializationInspections.Plugin
             var message = DebugUtility.FormatIncludingContext(typeElement) + " => ["
                           + string.Join(", ", highlightingResults.Select(x => x.GetType().Name)) + "]";
 
-            Log.LogMessage(LoggingLevel.VERBOSE, DebugUtility.FormatWithElapsed(message, stopwatch));
+            Log.Verbose(DebugUtility.FormatWithElapsed(message, stopwatch));
 #endif
         }
 
