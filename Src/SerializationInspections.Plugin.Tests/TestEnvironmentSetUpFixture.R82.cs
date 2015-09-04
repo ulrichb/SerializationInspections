@@ -7,7 +7,7 @@ using JetBrains.Util;
 using NUnit.Framework;
 using SerializationInspections.Plugin;
 
-[assembly: TestDataPathBase(@"..\SerializationInspections.Sample")]
+[assembly: TestDataPathBase(@"test\data")]
 
 /// <summary>
 /// Test environment. Must be in the global namespace.

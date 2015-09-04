@@ -5,8 +5,6 @@ using JetBrains.TestFramework.Application.Zones;
 using NUnit.Framework;
 using SerializationInspections.Plugin.Tests;
 
-[assembly: TestDataPathBase(@"..\SerializationInspections.Sample")]
-
 namespace SerializationInspections.Plugin.Tests
 {
     [ZoneDefinition]

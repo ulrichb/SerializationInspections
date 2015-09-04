@@ -19,7 +19,7 @@ $NUnitTestAssemblyPaths = @(
     "Src\SerializationInspections.Plugin.Tests\bin.R82\$Configuration\SerializationInspections.Plugin.Tests.R82.dll",
     "Src\SerializationInspections.Plugin.Tests\bin.R91\$Configuration\SerializationInspections.Plugin.Tests.R91.dll",
     "Src\SerializationInspections.Plugin.Tests\bin.R92\$Configuration\SerializationInspections.Plugin.Tests.R92.dll",
-    "Src\SerializationInspections.Sample\bin\$Configuration\SerializationInspections.Sample.dll"
+    "Src\SerializationInspections.Plugin.Tests\test\data\bin\$Configuration\SerializationInspections.Sample.dll"
 )
 $NUnitFrameworkVersion = "net-4.5"
 $TestCoverageFilter = "+[SerializationInspections*]* -[SerializationInspections*]ReSharperExtensionsShared.* -[SerializationInspections.Sample]*"
