@@ -1,7 +1,10 @@
 using JetBrains.Annotations;
-using JetBrains.Metadata.Reader.API;
 using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.Tree;
+#if !RESHARPER8
+using JetBrains.Metadata.Reader.API;
+
+#endif
 
 namespace SerializationInspections.Plugin.Infrastructure
 {

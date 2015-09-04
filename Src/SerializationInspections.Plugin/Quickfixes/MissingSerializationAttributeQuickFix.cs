@@ -16,7 +16,6 @@ using JetBrains.ReSharper.Feature.Services.Bulbs;
 using JetBrains.ReSharper.Intentions.Extensibility;
 
 #else
-using JetBrains.Metadata.Reader.API;
 using JetBrains.ReSharper.Feature.Services.QuickFixes;
 
 #endif
