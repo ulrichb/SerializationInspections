@@ -40,10 +40,7 @@ namespace SerializationInspections.Plugin.Quickfixes
             return GetValidAttributesOwnerDeclaration(_highlighting.TreeNode) != null;
         }
 
-        public override string Text
-        {
-            get { return "Add [Serializable] attribute"; }
-        }
+        public override string Text => "Add [Serializable] attribute";
 
         protected override Action<ITextControl> ExecutePsiTransaction(ISolution solution, IProgressIndicator progress)
         {

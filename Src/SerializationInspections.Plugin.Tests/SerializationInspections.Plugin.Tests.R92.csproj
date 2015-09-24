@@ -157,10 +157,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IntegrationTests\HighlightingTests.cs" />
-    <Compile Include="IntegrationTests\MissingDeserializationConstructorQuickFixTest.cs" />
-    <Compile Include="IntegrationTests\SerializationHighlightingQuickFixAvailabilityTests.cs" />
-    <Compile Include="IntegrationTests\MissingSerializationAttributeQuickFixTest.cs" />
+    <Compile Include="Integrative\HighlightingTests.cs" />
+    <Compile Include="Integrative\MissingDeserializationConstructorQuickFixTest.cs" />
+    <Compile Include="Integrative\SerializationHighlightingQuickFixAvailabilityTests.cs" />
+    <Compile Include="Integrative\MissingSerializationAttributeQuickFixTest.cs" />
     <Compile Include="ZoneMarker.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -9,17 +9,15 @@ using JetBrains.ReSharper.Intentions.Test;
 #else
 using JetBrains.ReSharper.Feature.Services.Daemon;
 using JetBrains.ReSharper.FeaturesTestFramework.Intentions;
+
 #endif
 
-namespace SerializationInspections.Plugin.Tests.IntegrationTests
+namespace SerializationInspections.Plugin.Tests.Integrative
 {
     [TestFixture]
     public class SerializationHighlightingQuickFixAvailabilityTests : QuickFixAvailabilityTestBase
     {
-        protected override string RelativeTestDataPath
-        {
-            get { return @"QuickFixes"; }
-        }
+        protected override string RelativeTestDataPath => @"QuickFixes";
 
         protected override bool HighlightingPredicate(IHighlighting highlighting, IPsiSourceFile psiSourceFile)
         {

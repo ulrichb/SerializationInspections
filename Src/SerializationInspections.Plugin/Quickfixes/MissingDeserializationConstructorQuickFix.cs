@@ -41,10 +41,7 @@ namespace SerializationInspections.Plugin.Quickfixes
             return GetValidClassLikeDeclaration(_highlighting.TreeNode) != null;
         }
 
-        public override string Text
-        {
-            get { return "Create deserialization constructor"; }
-        }
+        public override string Text => "Create deserialization constructor";
 
         protected override Action<ITextControl> ExecutePsiTransaction(ISolution solution, IProgressIndicator progress)
         {

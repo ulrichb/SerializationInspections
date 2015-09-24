@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using JetBrains.ReSharper.TestFramework;
 using NUnit.Framework;
 using SerializationInspections.Plugin.Highlighting;
@@ -15,14 +14,11 @@ using JetBrains.ReSharper.Psi;
 
 #endif
 
-namespace SerializationInspections.Plugin.Tests.IntegrationTests
+namespace SerializationInspections.Plugin.Tests.Integrative
 {
     public class HighlightingTests : CSharpHighlightingTestBase
     {
-        protected override string RelativeTestDataPath
-        {
-            get { return "Highlighting"; }
-        }
+        protected override string RelativeTestDataPath => "Highlighting";
 
 #if RESHARPER8
         protected override bool HighlightingPredicate(IHighlighting highlighting, IContextBoundSettingsStore settingsStore)
@@ -76,10 +72,7 @@ namespace SerializationInspections.Plugin.Tests.IntegrationTests
         [ExcludeMsCorLib]
         public class NoMsCorLib : HighlightingTests
         {
-            protected override string RelativeTestDataPath
-            {
-                get { return Path.Combine(base.RelativeTestDataPath, "NoMsCorLib"); }
-            }
+            protected override string RelativeTestDataPath => Path.Combine(base.RelativeTestDataPath, "NoMsCorLib");
 
             [Test]
             public void TestNoMsCorlib()

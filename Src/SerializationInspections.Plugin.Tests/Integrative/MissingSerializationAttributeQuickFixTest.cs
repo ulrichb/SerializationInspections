@@ -8,15 +8,12 @@ using JetBrains.ReSharper.FeaturesTestFramework.Intentions;
 
 #endif
 
-namespace SerializationInspections.Plugin.Tests.IntegrationTests
+namespace SerializationInspections.Plugin.Tests.Integrative
 {
     [TestFixture]
     public class MissingSerializationAttributeQuickFixTest : CSharpQuickFixTestBase<MissingSerializationAttributeQuickFix>
     {
-        protected override string RelativeTestDataPath
-        {
-            get { return @"QuickFixes\MissingSerializationAttribute"; }
-        }
+        protected override string RelativeTestDataPath => @"QuickFixes\MissingSerializationAttribute";
 
         [Test]
         public void TestExceptionClass()
