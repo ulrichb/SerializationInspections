@@ -10,7 +10,7 @@ using SerializationInspections.Plugin.Highlighting;
     MissingDeserializationConstructorHighlighting.Title,
     MissingDeserializationConstructorHighlighting.Description,
     Severity.WARNING,
-    solutionAnalysisRequired: false)]
+    /*SolutionAnalysisRequired:*/ false)]
 
 namespace SerializationInspections.Plugin.Highlighting
 {

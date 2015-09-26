@@ -3,7 +3,9 @@ using System.Diagnostics;
 
 namespace SerializationInspections.Sample.QuickFixes.MissingSerializationAttribute
 {
-  [Serializable,DebuggerDisplay("x"), CLSCompliant(true)]
+  [DebuggerDisplay("x")]
+  [CLSCompliant(true)]
+  [Serializable]
   public class ExceptionWithExistingAttributes{caret} : Exception
   {
   }
