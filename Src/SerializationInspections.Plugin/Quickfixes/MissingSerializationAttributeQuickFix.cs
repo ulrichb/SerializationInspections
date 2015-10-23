@@ -1,8 +1,8 @@
-﻿using SerializationInspections.Plugin.Infrastructure;
-using System;
+﻿using System;
 using JetBrains.Annotations;
 using JetBrains.Application.Progress;
 using JetBrains.ProjectModel;
+using JetBrains.ReSharper.Feature.Services.QuickFixes;
 using JetBrains.ReSharper.Intentions.Util;
 using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.CSharp;
@@ -11,14 +11,7 @@ using JetBrains.ReSharper.Psi.Tree;
 using JetBrains.TextControl;
 using JetBrains.Util;
 using SerializationInspections.Plugin.Highlighting;
-#if RESHARPER8
-using JetBrains.ReSharper.Feature.Services.Bulbs;
-using JetBrains.ReSharper.Intentions.Extensibility;
-
-#else
-using JetBrains.ReSharper.Feature.Services.QuickFixes;
-
-#endif
+using SerializationInspections.Plugin.Infrastructure;
 
 namespace SerializationInspections.Plugin.Quickfixes
 {

@@ -1,18 +1,10 @@
 ﻿using System.IO;
-using JetBrains.ReSharper.TestFramework;
-using NUnit.Framework;
-using SerializationInspections.Plugin.Highlighting;
-#if RESHARPER8
-using JetBrains.Application.Settings;
-using JetBrains.ReSharper.Daemon;
-using JetBrains.ReSharper.Daemon.CSharp;
-
-#else
 using JetBrains.ReSharper.Feature.Services.Daemon;
 using JetBrains.ReSharper.FeaturesTestFramework.Daemon;
 using JetBrains.ReSharper.Psi;
-
-#endif
+using JetBrains.ReSharper.TestFramework;
+using NUnit.Framework;
+using SerializationInspections.Plugin.Highlighting;
 
 namespace SerializationInspections.Plugin.Tests.Integrative
 {
@@ -20,11 +12,7 @@ namespace SerializationInspections.Plugin.Tests.Integrative
     {
         protected override string RelativeTestDataPath => "Highlighting";
 
-#if RESHARPER8
-        protected override bool HighlightingPredicate(IHighlighting highlighting, IContextBoundSettingsStore settingsStore)
-#else
         protected override bool HighlightingPredicate(IHighlighting highlighting, IPsiSourceFile sourceFile)
-#endif
         {
             return highlighting is SerializationHighlightingBase;
         }

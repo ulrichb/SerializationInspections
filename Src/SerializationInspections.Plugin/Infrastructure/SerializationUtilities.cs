@@ -1,11 +1,8 @@
 using System.Linq;
 using JetBrains.Annotations;
+using JetBrains.Metadata.Reader.Impl;
 using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.Util;
-#if !RESHARPER8
-using JetBrains.Metadata.Reader.Impl;
-
-#endif
 
 namespace SerializationInspections.Plugin.Infrastructure
 {

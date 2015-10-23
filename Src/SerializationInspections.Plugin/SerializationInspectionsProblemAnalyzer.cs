@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using JetBrains.Annotations;
 using JetBrains.ReSharper.Daemon.CSharp.Stages;
 using JetBrains.ReSharper.Daemon.Stages.Dispatcher;
+using JetBrains.ReSharper.Feature.Services.Daemon;
 using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.Tree;
 using JetBrains.Util;
@@ -12,14 +12,6 @@ using JetBrains.Util.Logging;
 using ReSharperExtensionsShared.Debugging;
 using SerializationInspections.Plugin.Highlighting;
 using SerializationInspections.Plugin.Infrastructure;
-#if RESHARPER8
-using JetBrains.ReSharper.Daemon;
-using JetBrains.ReSharper.Daemon.Stages;
-
-#else
-using JetBrains.ReSharper.Feature.Services.Daemon;
-
-#endif
 
 namespace SerializationInspections.Plugin
 {

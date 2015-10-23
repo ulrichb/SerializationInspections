@@ -1,12 +1,6 @@
-﻿using NUnit.Framework;
+﻿using JetBrains.ReSharper.FeaturesTestFramework.Intentions;
+using NUnit.Framework;
 using SerializationInspections.Plugin.Quickfixes;
-#if RESHARPER8
-using JetBrains.ReSharper.Intentions.CSharp.QuickFixes.Tests;
-
-#else
-using JetBrains.ReSharper.FeaturesTestFramework.Intentions;
-
-#endif
 
 namespace SerializationInspections.Plugin.Tests.Integrative
 {

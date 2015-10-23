@@ -1,12 +1,7 @@
 ﻿using JetBrains.Annotations;
-using SerializationInspections.Plugin.Highlighting;
-using JetBrains.ReSharper.Psi.Tree;
-#if RESHARPER8
-using JetBrains.ReSharper.Daemon;
-
-#else
 using JetBrains.ReSharper.Feature.Services.Daemon;
-#endif
+using JetBrains.ReSharper.Psi.Tree;
+using SerializationInspections.Plugin.Highlighting;
 
 [assembly: RegisterConfigurableSeverity(
     MissingDeserializationConstructorHighlighting.SeverityId,
