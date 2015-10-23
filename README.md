@@ -4,7 +4,11 @@
 
 [ReSharper Gallery Page](http://resharper-plugins.jetbrains.com/packages/ReSharper.SerializationInspections/)
 
-A simple ReSharper extension which adds the following inspections for binary serializable types.
+[History of changes](History.md)
+
+## Description
+
+Serialization Inspections is simple ReSharper extension which adds the following inspections for binary serializable types.
 
 - "Missing [Serializable] attribute" warning
     + For classes derived from `Exception` but without the `[Serializable]` attribute.
