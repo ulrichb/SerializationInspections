@@ -19,6 +19,7 @@ $NUnitTestAssemblyPaths = @(
     "Src\SerializationInspections.Plugin.Tests\bin\R91\$Configuration\SerializationInspections.Plugin.Tests.R91.dll"
     "Src\SerializationInspections.Plugin.Tests\bin\R92\$Configuration\SerializationInspections.Plugin.Tests.R92.dll"
     "Src\SerializationInspections.Plugin.Tests\bin\R100\$Configuration\SerializationInspections.Plugin.Tests.R100.dll"
+    "Src\SerializationInspections.Plugin.Tests\bin\R20161\$Configuration\SerializationInspections.Plugin.Tests.R20161.dll"
     "Src\SerializationInspections.Plugin.Tests\test\data\bin\$Configuration\SerializationInspections.Sample.dll"
 )
 $NUnitFrameworkVersion = "net-4.5"
@@ -28,6 +29,7 @@ $NugetPackProperties = @(
     "Version=$(CalcNuGetPackageVersion 91);Configuration=$Configuration;DependencyVer=[2.0];BinDirInclude=bin\R91"
     "Version=$(CalcNuGetPackageVersion 92);Configuration=$Configuration;DependencyVer=[3.0];BinDirInclude=bin\R92"
     "Version=$(CalcNuGetPackageVersion 100);Configuration=$Configuration;DependencyVer=[4.0];BinDirInclude=bin\R100"
+    "Version=$(CalcNuGetPackageVersion 20161);Configuration=$Configuration;DependencyVer=[5.0];BinDirInclude=bin\R20161"
 )
 $NugetPushServer = "https://www.myget.org/F/ulrichb/api/v2/package"
 

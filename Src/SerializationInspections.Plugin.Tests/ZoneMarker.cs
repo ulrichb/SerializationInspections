@@ -5,6 +5,8 @@ using JetBrains.TestFramework.Application.Zones;
 using NUnit.Framework;
 using SerializationInspections.Plugin.Tests;
 
+[assembly: RequiresSTA]
+
 namespace SerializationInspections.Plugin.Tests
 {
     [ZoneDefinition]

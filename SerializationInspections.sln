@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializationInspections.Plugin.R91", "Src\SerializationInspections.Plugin\SerializationInspections.Plugin.R91.csproj", "{CDB42CAA-C42A-4343-9067-C9B766CAEFA6}"
 EndProject
@@ -23,6 +23,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializationInspections.Plugin.R100", "Src\SerializationInspections.Plugin\SerializationInspections.Plugin.R100.csproj", "{A0924E02-6CA8-4CFA-87A6-40F56876B80A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializationInspections.Plugin.Tests.R100", "Src\SerializationInspections.Plugin.Tests\SerializationInspections.Plugin.Tests.R100.csproj", "{41517302-E4CC-4ACF-B471-0BAE07EB6826}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializationInspections.Plugin.R20161", "Src\SerializationInspections.Plugin\SerializationInspections.Plugin.R20161.csproj", "{9EDAC95C-EDB0-4E69-86B1-E37CA8B99107}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializationInspections.Plugin.Tests.R20161", "Src\SerializationInspections.Plugin.Tests\SerializationInspections.Plugin.Tests.R20161.csproj", "{3B32B36B-98A8-4763-859F-D8C7E52F2859}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,6 +64,14 @@ Global
 		{41517302-E4CC-4ACF-B471-0BAE07EB6826}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41517302-E4CC-4ACF-B471-0BAE07EB6826}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41517302-E4CC-4ACF-B471-0BAE07EB6826}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EDAC95C-EDB0-4E69-86B1-E37CA8B99107}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EDAC95C-EDB0-4E69-86B1-E37CA8B99107}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EDAC95C-EDB0-4E69-86B1-E37CA8B99107}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EDAC95C-EDB0-4E69-86B1-E37CA8B99107}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B32B36B-98A8-4763-859F-D8C7E52F2859}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B32B36B-98A8-4763-859F-D8C7E52F2859}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B32B36B-98A8-4763-859F-D8C7E52F2859}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B32B36B-98A8-4763-859F-D8C7E52F2859}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,5 +84,7 @@ Global
 		{581458F7-B6CE-4ACE-A8CB-55252C319204} = {26B55A35-CCB1-4635-871A-EE770850A5F2}
 		{A0924E02-6CA8-4CFA-87A6-40F56876B80A} = {26B55A35-CCB1-4635-871A-EE770850A5F2}
 		{41517302-E4CC-4ACF-B471-0BAE07EB6826} = {26B55A35-CCB1-4635-871A-EE770850A5F2}
+		{9EDAC95C-EDB0-4E69-86B1-E37CA8B99107} = {26B55A35-CCB1-4635-871A-EE770850A5F2}
+		{3B32B36B-98A8-4763-859F-D8C7E52F2859} = {26B55A35-CCB1-4635-871A-EE770850A5F2}
 	EndGlobalSection
 EndGlobal

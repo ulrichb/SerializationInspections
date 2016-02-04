@@ -46,7 +46,7 @@ namespace SerializationInspections.Plugin.Quickfixes
                 var serializableAttributeType = PredefinedType.SERIALIZABLE_ATTRIBUTE_CLASS.CreateTypeInContextOf(attributesOwnerDeclaration);
                 var attribute = elementFactory.CreateAttribute(serializableAttributeType.GetTypeElement().NotNull());
 
-                attributesOwnerDeclaration.AddAttributeAfter(attribute, null);
+                attributesOwnerDeclaration.AddAttributeBefore(attribute, null);
             }
 
             return null;
