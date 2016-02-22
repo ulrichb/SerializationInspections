@@ -14,7 +14,7 @@ $BuildOutputPath = "Build\Output"
 $SolutionFilePath = "SerializationInspections.sln"
 $AssemblyVersionFilePath = "Src\SerializationInspections.Plugin\Properties\AssemblyInfo.cs"
 $MSBuildPath = "${env:ProgramFiles(x86)}\MSBuild\14.0\Bin\MSBuild.exe"
-$NUnitExecutable = "nunit-console-x86.exe"
+$NUnitAdditionalArgs = "--x86 --labels=All"
 $NUnitTestAssemblyPaths = @(
     "Src\SerializationInspections.Plugin.Tests\bin\R91\$Configuration\SerializationInspections.Plugin.Tests.R91.dll"
     "Src\SerializationInspections.Plugin.Tests\bin\R92\$Configuration\SerializationInspections.Plugin.Tests.R92.dll"
