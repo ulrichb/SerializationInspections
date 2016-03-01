@@ -18,7 +18,9 @@ namespace SerializationInspections.Plugin
     /// <summary>
     /// A problem analyzer for the serialization inspections.
     /// </summary>
-    [ElementProblemAnalyzer(typeof (ITypeDeclaration), HighlightingTypes = new[] {typeof (MissingDeserializationConstructorHighlighting)})]
+    [ElementProblemAnalyzer(
+        typeof (ITypeDeclaration),
+        HighlightingTypes = new[] {typeof (MissingSerializationAttributeHighlighting), typeof (MissingDeserializationConstructorHighlighting)})]
     public class SerializationInspectionsProblemAnalyzer : ElementProblemAnalyzer<ITypeDeclaration>
     {
         private static readonly ILogger Log = Logger.GetLogger(typeof (SerializationInspectionsProblemAnalyzer));
