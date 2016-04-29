@@ -3,7 +3,7 @@ using JetBrains.ReSharper.TestFramework;
 using NUnit.Framework;
 using SerializationInspections.Plugin.Quickfixes;
 
-#if RESHARPER91 || RESHARPER92
+#if RESHARPER92
 using JetBrains.Application.Settings;
 using JetBrains.ReSharper.Psi.CSharp.CodeStyle.FormatSettings;
 
@@ -34,7 +34,7 @@ namespace SerializationInspections.Plugin.Tests.Integrative
             ExecuteWithinSettingsTransaction(s =>
             {
                 // The default of the FORCE_ATTRIBUTE_STYLE setting was changed to "SEPARATE" in R# 10:
-#if RESHARPER91 || RESHARPER92
+#if RESHARPER92
 
                 RunGuarded(() => s.SetValue((CSharpFormatSettingsKey x) => x.FORCE_ATTRIBUTE_STYLE, ForceAttributeStyle.SEPARATE));
 #endif
