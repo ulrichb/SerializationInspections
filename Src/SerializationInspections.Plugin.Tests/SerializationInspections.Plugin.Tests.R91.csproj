@@ -163,7 +163,7 @@
     <Compile Include="Integrative\MissingDeserializationConstructorQuickFixTest.cs" />
     <Compile Include="Integrative\SerializationHighlightingQuickFixAvailabilityTests.cs" />
     <Compile Include="Integrative\MissingSerializationAttributeQuickFixTest.cs" />
-    <Compile Include="ZoneMarker.cs" />
+    <Compile Include="ZoneMarkerAndSetUpFixture.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.SerializationInspections.Plugin.Tests.R91.config" />

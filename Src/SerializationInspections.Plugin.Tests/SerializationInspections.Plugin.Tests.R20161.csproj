@@ -166,7 +166,7 @@
     <Compile Include="Integrative\MissingDeserializationConstructorQuickFixTest.cs" />
     <Compile Include="Integrative\SerializationHighlightingQuickFixAvailabilityTests.cs" />
     <Compile Include="Integrative\MissingSerializationAttributeQuickFixTest.cs" />
-    <Compile Include="ZoneMarker.cs" />
+    <Compile Include="ZoneMarkerAndSetUpFixture.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SerializationInspections.Plugin\SerializationInspections.Plugin.R20161.csproj">
