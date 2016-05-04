@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
+// ReSharper disable RedundantExtendsListEntry
+// ReSharper disable RedundantOverridenMember
+
 namespace SerializationInspections.Sample.Highlighting
 {
     [Serializable]

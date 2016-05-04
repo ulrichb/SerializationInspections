@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
+// ReSharper disable UnusedMember.Local
+
 namespace SerializationInspections.Sample.Highlighting
 {
     [Serializable]
