@@ -1,9 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
-using JetBrains.Application.Progress;
-using JetBrains.ProjectModel;
 using JetBrains.ReSharper.Feature.Services.QuickFixes;
-using JetBrains.ReSharper.Intentions.Util;
 using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.CSharp;
 using JetBrains.ReSharper.Psi.CSharp.Tree;
@@ -20,49 +17,26 @@ namespace SerializationInspections.Plugin.Quickfixes
     /// with an optional base call.
     /// </summary>
     [QuickFix]
-    public class MissingDeserializationConstructorQuickFix : QuickFixBase
+    public class MissingDeserializationConstructorQuickFix : ValidDeclarationTypeQuickFixBase<IClassLikeDeclaration>
     {
-        private readonly MissingDeserializationConstructorHighlighting _highlighting;
-
-        public MissingDeserializationConstructorQuickFix([NotNull] MissingDeserializationConstructorHighlighting highlighting)
+        public MissingDeserializationConstructorQuickFix([NotNull] MissingDeserializationConstructorHighlighting highlighting) :
+            base(highlighting.TreeNode)
         {
-            _highlighting = highlighting;
-        }
-
-        public override bool IsAvailable(IUserDataHolder cache)
-        {
-            return GetValidClassLikeDeclaration(_highlighting.TreeNode) != null;
         }
 
         public override string Text => "Create deserialization constructor";
 
-        protected override Action<ITextControl> ExecutePsiTransaction(ISolution solution, IProgressIndicator progress)
+        protected override Action<ITextControl> ExecuteOnDeclaration(IClassLikeDeclaration classLikeDeclaration)
         {
-            var classLikeDeclaration = GetValidClassLikeDeclaration(_highlighting.TreeNode);
+            var elementFactory = CSharpElementFactory.GetInstance(classLikeDeclaration, applyCodeFormatter: true);
 
-            if (classLikeDeclaration != null)
-            {
-                var elementFactory = CSharpElementFactory.GetInstance(classLikeDeclaration, applyCodeFormatter: true);
+            var constructorDeclaration = CreateDeserializationConstructor(classLikeDeclaration, elementFactory);
 
-                var constructorDeclaration = CreateDeserializationConstructor(classLikeDeclaration, elementFactory);
+            var addedConstructorDeclaration = classLikeDeclaration.AddClassMemberDeclaration(constructorDeclaration);
+            var offset = addedConstructorDeclaration.GetNameDocumentRange().TextRange.EndOffset;
+            Assertion.Assert(offset >= 0, "offset >= 0");
 
-                var addedConstructorDeclaration = classLikeDeclaration.AddClassMemberDeclaration(constructorDeclaration);
-                var offset = addedConstructorDeclaration.GetNameDocumentRange().TextRange.EndOffset;
-                Assertion.Assert(offset >= 0, "offset >= 0");
-
-                return textControl => textControl.Caret.MoveTo(offset, CaretVisualPlacement.Generic);
-            }
-
-            return null;
-        }
-
-        [CanBeNull]
-        private IClassLikeDeclaration GetValidClassLikeDeclaration([NotNull] ITypeDeclaration typeDeclaration)
-        {
-            if (!ValidUtils.Valid(typeDeclaration))
-                return null;
-
-            return typeDeclaration as IClassLikeDeclaration;
+            return textControl => textControl.Caret.MoveTo(offset, CaretVisualPlacement.Generic);
         }
 
         [NotNull]
