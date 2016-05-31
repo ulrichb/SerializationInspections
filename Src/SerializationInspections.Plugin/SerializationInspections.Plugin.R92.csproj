@@ -167,18 +167,7 @@
     <Compile Include="..\..\Shared\Src\ReSharperExtensionsShared\Highlighting\SimpleTreeNodeHighlightingBase.cs">
       <Link>ReSharperExtensionsShared\SimpleTreeNodeHighlightingBase.cs</Link>
     </Compile>
-    <Compile Include="Highlighting\MissingDeserializationConstructorHighlighting.cs" />
-    <Compile Include="Highlighting\MissingSerializationAttributeHighlighting.cs" />
-    <Compile Include="Highlighting\SerializationHighlightingBase.cs" />
-    <Compile Include="Infrastructure\ClrTypeNameExtensions.cs" />
-    <Compile Include="Infrastructure\SerializationUtilities.cs" />
-    <Compile Include="Quickfixes\MissingDeserializationConstructorQuickFix.cs" />
-    <Compile Include="Quickfixes\MissingSerializationAttributeQuickFix.cs" />
-    <Compile Include="Quickfixes\ValidDeclarationTypeQuickFixBase.cs" />
-    <Compile Include="Quickfixes\ZoneMarker.cs" />
-    <Compile Include="ZoneMarker.cs" />
-    <Compile Include="SerializationInspectionsProblemAnalyzer.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="**\*.cs" Exclude="obj\**" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.SerializationInspections.Plugin.R92.config" />

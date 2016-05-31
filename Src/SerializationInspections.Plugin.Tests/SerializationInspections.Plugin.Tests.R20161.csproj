@@ -162,11 +162,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Integrative\HighlightingTests.cs" />
-    <Compile Include="Integrative\MissingDeserializationConstructorQuickFixTest.cs" />
-    <Compile Include="Integrative\SerializationHighlightingQuickFixAvailabilityTests.cs" />
-    <Compile Include="Integrative\MissingSerializationAttributeQuickFixTest.cs" />
-    <Compile Include="ZoneMarkerAndSetUpFixture.cs" />
+    <Compile Include="**\*.cs" Exclude="obj\**;Packages\**;test\data\**" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SerializationInspections.Plugin\SerializationInspections.Plugin.R20161.csproj">
