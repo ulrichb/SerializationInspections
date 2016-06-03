@@ -1,3 +1,6 @@
+### 1.5.0 ###
+- ReSharper 2016.2 support
+
 ### 1.4.0 ###
 - ReSharper 2016.1 support
 

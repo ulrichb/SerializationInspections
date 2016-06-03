@@ -24,6 +24,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializationInspections.Pl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializationInspections.Plugin.Tests.R20161", "Src\SerializationInspections.Plugin.Tests\SerializationInspections.Plugin.Tests.R20161.csproj", "{3B32B36B-98A8-4763-859F-D8C7E52F2859}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializationInspections.Plugin.R20162", "Src\SerializationInspections.Plugin\SerializationInspections.Plugin.R20162.csproj", "{27861489-37F1-4897-8A50-EE831970E26F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializationInspections.Plugin.Tests.R20162", "Src\SerializationInspections.Plugin.Tests\SerializationInspections.Plugin.Tests.R20162.csproj", "{077BB17D-397D-4A96-BB6A-68B21F7661DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +64,14 @@ Global
 		{3B32B36B-98A8-4763-859F-D8C7E52F2859}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B32B36B-98A8-4763-859F-D8C7E52F2859}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B32B36B-98A8-4763-859F-D8C7E52F2859}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27861489-37F1-4897-8A50-EE831970E26F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27861489-37F1-4897-8A50-EE831970E26F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27861489-37F1-4897-8A50-EE831970E26F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27861489-37F1-4897-8A50-EE831970E26F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{077BB17D-397D-4A96-BB6A-68B21F7661DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{077BB17D-397D-4A96-BB6A-68B21F7661DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{077BB17D-397D-4A96-BB6A-68B21F7661DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{077BB17D-397D-4A96-BB6A-68B21F7661DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,5 +84,7 @@ Global
 		{41517302-E4CC-4ACF-B471-0BAE07EB6826} = {26B55A35-CCB1-4635-871A-EE770850A5F2}
 		{9EDAC95C-EDB0-4E69-86B1-E37CA8B99107} = {26B55A35-CCB1-4635-871A-EE770850A5F2}
 		{3B32B36B-98A8-4763-859F-D8C7E52F2859} = {26B55A35-CCB1-4635-871A-EE770850A5F2}
+		{27861489-37F1-4897-8A50-EE831970E26F} = {26B55A35-CCB1-4635-871A-EE770850A5F2}
+		{077BB17D-397D-4A96-BB6A-68B21F7661DD} = {26B55A35-CCB1-4635-871A-EE770850A5F2}
 	EndGlobalSection
 EndGlobal
