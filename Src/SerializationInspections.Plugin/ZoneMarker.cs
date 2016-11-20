@@ -5,7 +5,9 @@ using JetBrains.ReSharper.Psi.CSharp;
 namespace SerializationInspections.Plugin
 {
     [ZoneMarker]
-    public class ZoneMarker : IRequire<ILanguageCSharpZone>, IRequire<DaemonEngineZone>
+    public class ZoneMarker :
+        IRequire<ILanguageCSharpZone>,
+        IRequire<DaemonZone>
     {
     }
 }
