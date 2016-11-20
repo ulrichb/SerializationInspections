@@ -12,11 +12,6 @@ using ReSharperExtensionsShared.Debugging;
 using SerializationInspections.Plugin.Highlighting;
 using SerializationInspections.Plugin.Infrastructure;
 
-#if RESHARPER92 || RESHARPER100
-using JetBrains.ReSharper.Daemon.CSharp.Stages;
-
-#endif
-
 namespace SerializationInspections.Plugin
 {
     /// <summary>

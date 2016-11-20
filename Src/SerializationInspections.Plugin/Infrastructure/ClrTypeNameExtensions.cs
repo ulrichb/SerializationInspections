@@ -13,21 +13,13 @@ namespace SerializationInspections.Plugin.Infrastructure
         [NotNull]
         public static IDeclaredType CreateTypeInContextOf([NotNull] this IClrTypeName clrTypeName, [NotNull] IDeclaration declaration)
         {
-            return TypeFactory.CreateTypeByCLRName(clrTypeName, declaration.GetPsiModule()
-#if RESHARPER92
-                , declaration.GetResolveContext()
-#endif
-                );
+            return TypeFactory.CreateTypeByCLRName(clrTypeName, declaration.GetPsiModule());
         }
 
         [NotNull]
         public static IDeclaredType CreateTypeInContextOf([NotNull] this IClrTypeName clrTypeName, [NotNull] IClrDeclaredElement contextElement)
         {
-            return TypeFactory.CreateTypeByCLRName(clrTypeName, contextElement.Module
-#if RESHARPER92
-                , contextElement.ResolveContext
-#endif
-                );
+            return TypeFactory.CreateTypeByCLRName(clrTypeName, contextElement.Module);
         }
     }
 }
