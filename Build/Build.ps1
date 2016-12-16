@@ -36,8 +36,8 @@ $NugetPushServer = "https://www.myget.org/F/ulrichb/api/v2/package"
 Clean
 PackageRestore
 Build
-Test
 NugetPack
+Test
 
 if ($NugetPushKey) {
     NugetPush
