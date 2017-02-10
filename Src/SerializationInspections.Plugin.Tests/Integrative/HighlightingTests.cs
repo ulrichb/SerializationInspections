@@ -8,6 +8,7 @@ using SerializationInspections.Plugin.Highlighting;
 
 namespace SerializationInspections.Plugin.Tests.Integrative
 {
+    [TestNetFramework4]
     public class HighlightingTests : CSharpHighlightingTestBase
     {
         protected override string RelativeTestDataPath => "Highlighting";
@@ -17,7 +18,6 @@ namespace SerializationInspections.Plugin.Tests.Integrative
             return highlighting is SerializationHighlightingBase;
         }
 
-        [TestNetFramework4]
         public class Default : HighlightingTests
         {
             [Test]
