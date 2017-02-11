@@ -11,6 +11,7 @@ namespace SerializationInspections.Sample.QuickFixes
     {
     }
 }
+
 ------------------------------------------------
 0: Exceptions should be marked with the [Serializable] attribute
 QUICKFIXES:

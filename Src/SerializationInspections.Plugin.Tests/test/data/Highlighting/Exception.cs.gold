@@ -40,6 +40,7 @@ namespace SerializationInspections.Sample.Highlighting
     {
     }
 }
+
 ---------------------------------------------------------
 (0): ReSharper Warning: Exceptions should be marked with the [Serializable] attribute
 (1): ReSharper Warning: Missing deserialization constructor

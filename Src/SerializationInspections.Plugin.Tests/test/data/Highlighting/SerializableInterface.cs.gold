@@ -57,6 +57,7 @@ namespace SerializationInspections.Sample.Highlighting
         }
     }
 }
+
 ---------------------------------------------------------
 (0): ReSharper Warning: A type implementing ISerializable should be marked with the [Serializable] attribute
 (1): ReSharper Warning: Missing deserialization constructor
