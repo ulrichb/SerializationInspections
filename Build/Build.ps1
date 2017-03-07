@@ -18,7 +18,6 @@ $AssemblyVersionFilePath = "Src\SerializationInspections.Plugin\Properties\Assem
 $MSBuildPath = "${env:ProgramFiles(x86)}\MSBuild\14.0\Bin\MSBuild.exe"
 $NUnitAdditionalArgs = "--x86 --labels=All --agents=1"
 $NUnitTestAssemblyPaths = @(
-    "Src\SerializationInspections.Plugin.Tests\bin\R20161\$Configuration\SerializationInspections.Plugin.Tests.R20161.dll"
     "Src\SerializationInspections.Plugin.Tests\bin\R20162\$Configuration\SerializationInspections.Plugin.Tests.R20162.dll"
     "Src\SerializationInspections.Plugin.Tests\bin\R20163\$Configuration\SerializationInspections.Plugin.Tests.R20163.dll"
     "Src\SerializationInspections.Plugin.Tests\test\data\bin\$Configuration\SerializationInspections.Sample.dll"
@@ -27,7 +26,6 @@ $NUnitFrameworkVersion = "net-4.5"
 $TestCoverageFilter = "+[SerializationInspections*]* -[SerializationInspections*]ReSharperExtensionsShared.* -[SerializationInspections.Sample]*"
 $NuspecPath = "Src\SerializationInspections.nuspec"
 $NugetPackProperties = @(
-    "Version=$(CalcNuGetPackageVersion 20161);Configuration=$Configuration;DependencyVer=[5.0];BinDirInclude=bin\R20161"
     "Version=$(CalcNuGetPackageVersion 20162);Configuration=$Configuration;DependencyVer=[6.0];BinDirInclude=bin\R20162"
     "Version=$(CalcNuGetPackageVersion 20163);Configuration=$Configuration;DependencyVer=[7.0];BinDirInclude=bin\R20163"
 )
