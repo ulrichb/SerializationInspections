@@ -8,17 +8,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{26B55A35-CCB
 		Src\SerializationInspections.nuspec = Src\SerializationInspections.nuspec
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolutionItems", "SolutionItems.csproj", "{6ADCE94D-EF87-42F6-A68B-69DA6FD90DE6}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializationInspections.Sample", "Src\SerializationInspections.Plugin.Tests\test\data\SerializationInspections.Sample.csproj", "{4AF4FFEC-2FAC-426A-B8B2-06F4D9F52392}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolutionItems", "SolutionItems.csproj", "{6ADCE94D-EF87-42F6-A68B-69DA6FD90DE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerializationInspections.Plugin.R20162", "Src\SerializationInspections.Plugin\SerializationInspections.Plugin.R20162.csproj", "{27861489-37F1-4897-8A50-EE831970E26F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializationInspections.Plugin.R20162", "Src\SerializationInspections.Plugin\SerializationInspections.Plugin.R20162.csproj", "{27861489-37F1-4897-8A50-EE831970E26F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerializationInspections.Plugin.Tests.R20162", "Src\SerializationInspections.Plugin.Tests\SerializationInspections.Plugin.Tests.R20162.csproj", "{077BB17D-397D-4A96-BB6A-68B21F7661DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializationInspections.Plugin.Tests.R20162", "Src\SerializationInspections.Plugin.Tests\SerializationInspections.Plugin.Tests.R20162.csproj", "{077BB17D-397D-4A96-BB6A-68B21F7661DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerializationInspections.Plugin.R20163", "Src\SerializationInspections.Plugin\SerializationInspections.Plugin.R20163.csproj", "{712FD36E-9DB1-4362-97B9-D15A8E135309}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializationInspections.Plugin.R20163", "Src\SerializationInspections.Plugin\SerializationInspections.Plugin.R20163.csproj", "{712FD36E-9DB1-4362-97B9-D15A8E135309}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializationInspections.Plugin.Tests.R20163", "Src\SerializationInspections.Plugin.Tests\SerializationInspections.Plugin.Tests.R20163.csproj", "{42C0F34A-4A4A-417C-9E66-56588629596F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerializationInspections.Plugin.Tests.R20163", "Src\SerializationInspections.Plugin.Tests\SerializationInspections.Plugin.Tests.R20163.csproj", "{42C0F34A-4A4A-417C-9E66-56588629596F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,12 +26,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6ADCE94D-EF87-42F6-A68B-69DA6FD90DE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ADCE94D-EF87-42F6-A68B-69DA6FD90DE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ADCE94D-EF87-42F6-A68B-69DA6FD90DE6}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ADCE94D-EF87-42F6-A68B-69DA6FD90DE6}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{4AF4FFEC-2FAC-426A-B8B2-06F4D9F52392}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4AF4FFEC-2FAC-426A-B8B2-06F4D9F52392}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AF4FFEC-2FAC-426A-B8B2-06F4D9F52392}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AF4FFEC-2FAC-426A-B8B2-06F4D9F52392}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6ADCE94D-EF87-42F6-A68B-69DA6FD90DE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6ADCE94D-EF87-42F6-A68B-69DA6FD90DE6}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{27861489-37F1-4897-8A50-EE831970E26F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{27861489-37F1-4897-8A50-EE831970E26F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27861489-37F1-4897-8A50-EE831970E26F}.Release|Any CPU.ActiveCfg = Release|Any CPU
