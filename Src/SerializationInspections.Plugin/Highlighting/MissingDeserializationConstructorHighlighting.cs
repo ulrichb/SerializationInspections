@@ -9,11 +9,7 @@ using SerializationInspections.Plugin.Highlighting;
     HighlightingGroupIds.CodeSmell,
     MissingDeserializationConstructorHighlighting.Title,
     MissingDeserializationConstructorHighlighting.Description,
-    Severity.WARNING
-#if RESHARPER20162
-    , /*SolutionAnalysisRequired:*/ false
-#endif
-)]
+    Severity.WARNING)]
 
 namespace SerializationInspections.Plugin.Highlighting
 {
