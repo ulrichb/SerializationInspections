@@ -2,8 +2,8 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/2s7coc39oicpr6p6/branch/master?svg=true)](https://ci.appveyor.com/project/ulrichb/serializationinspections/branch/master)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ulrichb/SerializationInspections?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-<a href="https://ci.appveyor.com/api/projects/ulrichb/serializationinspections/artifacts/Build/Output/TestCoverage.zip"><img src="https://dl.dropbox.com/s/254s0904t2qd31z/master-linecoverage.svg" alt="Line Coverage" title="Line Coverage"></a>
-<a href="https://ci.appveyor.com/api/projects/ulrichb/serializationinspections/artifacts/Build/Output/TestCoverage.zip"><img src="https://dl.dropbox.com/s/yjhqgm81fawf9is/master-branchcoverage.svg" alt="Branch Coverage" title="Branch Coverage"></a>
+<a href="https://ci.appveyor.com/api/projects/ulrichb/serializationinspections/artifacts/Build/Output/TestCoverage.zip?branch=master"><img src="https://dl.dropbox.com/s/254s0904t2qd31z/master-linecoverage.svg" alt="Line Coverage" title="Line Coverage"></a>
+<a href="https://ci.appveyor.com/api/projects/ulrichb/serializationinspections/artifacts/Build/Output/TestCoverage.zip?branch=master"><img src="https://dl.dropbox.com/s/yjhqgm81fawf9is/master-branchcoverage.svg" alt="Branch Coverage" title="Branch Coverage"></a>
 
 [ReSharper Gallery Page](http://resharper-plugins.jetbrains.com/packages/ReSharper.SerializationInspections/)
 
