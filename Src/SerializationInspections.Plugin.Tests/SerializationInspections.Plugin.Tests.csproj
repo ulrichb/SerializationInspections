@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <ReSharperVersionIdentifier>20171</ReSharperVersionIdentifier>
+    <ReSharperVersionIdentifier>20172</ReSharperVersionIdentifier>
 
     <TargetFramework>net45</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="JetBrains.ReSharper.SDK.Tests" Version="2017.1.20170613.162448" />
+    <PackageReference Include="JetBrains.ReSharper.SDK.Tests" Version="2017.2.*" />
   </ItemGroup>
 
   <ItemGroup>

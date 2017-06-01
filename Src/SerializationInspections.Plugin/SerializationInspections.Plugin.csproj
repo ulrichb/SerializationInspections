@@ -2,7 +2,7 @@
   <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
 
   <PropertyGroup>
-    <ReSharperVersionIdentifier>20171</ReSharperVersionIdentifier>
+    <ReSharperVersionIdentifier>20172</ReSharperVersionIdentifier>
 
     <TargetFramework>net45</TargetFramework>
     <AssemblyVersion>0.0.0.1</AssemblyVersion>
@@ -29,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="JetBrains.ReSharper.SDK" Version="2017.1.20170613.162448" />
+    <PackageReference Include="JetBrains.ReSharper.SDK" Version="2017.2.*" />
   </ItemGroup>
 
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />

@@ -25,7 +25,7 @@ $NUnitFrameworkVersion = "net-4.5"
 $TestCoverageFilter = "+[SerializationInspections*]* -[SerializationInspections*]ReSharperExtensionsShared.* -[SerializationInspections.Sample]*"
 $NuspecPath = "Src\SerializationInspections.Plugin\SerializationInspections.nuspec"
 $NugetPackProperties = @(
-    "Version=$(CalcNuGetPackageVersion 20171);Configuration=$Configuration;DependencyVer=[8.0];BinDirInclude=bin"
+    "Version=$(CalcNuGetPackageVersion 20172);Configuration=$Configuration;DependencyVer=[9.0];BinDirInclude=bin"
 )
 $NugetPushServer = "https://www.myget.org/F/ulrichb/api/v2/package"
 
