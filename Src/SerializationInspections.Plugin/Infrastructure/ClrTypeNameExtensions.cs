@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using JetBrains.Metadata.Reader.API;
 using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.Tree;
@@ -10,14 +9,12 @@ namespace SerializationInspections.Plugin.Infrastructure
     /// </summary>
     public static class ClrTypeNameExtensions
     {
-        [NotNull]
-        public static IDeclaredType CreateTypeInContextOf([NotNull] this IClrTypeName clrTypeName, [NotNull] IDeclaration declaration)
+        public static IDeclaredType CreateTypeInContextOf(this IClrTypeName clrTypeName, IDeclaration declaration)
         {
             return TypeFactory.CreateTypeByCLRName(clrTypeName, declaration.GetPsiModule());
         }
 
-        [NotNull]
-        public static IDeclaredType CreateTypeInContextOf([NotNull] this IClrTypeName clrTypeName, [NotNull] IClrDeclaredElement contextElement)
+        public static IDeclaredType CreateTypeInContextOf(this IClrTypeName clrTypeName, IClrDeclaredElement contextElement)
         {
             return TypeFactory.CreateTypeByCLRName(clrTypeName, contextElement.Module);
         }

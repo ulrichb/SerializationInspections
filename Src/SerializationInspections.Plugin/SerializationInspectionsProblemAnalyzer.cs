@@ -49,7 +49,7 @@ namespace SerializationInspections.Plugin
 #endif
         }
 
-        private IEnumerable<IHighlighting> HandleTypeElement([NotNull] ITypeDeclaration declaration, [CanBeNull] ITypeElement typeElement)
+        private IEnumerable<IHighlighting> HandleTypeElement(ITypeDeclaration declaration, [CanBeNull] ITypeElement typeElement)
         {
             if (typeElement != null)
             {
@@ -84,17 +84,17 @@ namespace SerializationInspections.Plugin
             }
         }
 
-        private static bool IsException([NotNull] ITypeElement typeElement)
+        private static bool IsException(ITypeElement typeElement)
         {
             return TypeFactory.CreateType(typeElement).IsSubtypeOf(PredefinedType.EXCEPTION_FQN.CreateTypeInContextOf(typeElement));
         }
 
-        private static bool IsSerializable([NotNull] ITypeElement typeElement)
+        private static bool IsSerializable(ITypeElement typeElement)
         {
             return TypeFactory.CreateType(typeElement).IsSubtypeOf(PredefinedType.ISERIALIZABLE_FQN.CreateTypeInContextOf(typeElement));
         }
 
-        private static bool IsImplementingSerializableInterface([NotNull] ITypeElement typeElement)
+        private static bool IsImplementingSerializableInterface(ITypeElement typeElement)
         {
             return typeElement.GetSuperTypes().Contains(PredefinedType.ISERIALIZABLE_FQN.CreateTypeInContextOf(typeElement));
         }

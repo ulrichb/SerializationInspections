@@ -17,13 +17,14 @@ namespace SerializationInspections.Plugin.Quickfixes
     [QuickFix]
     public class MissingSerializationAttributeQuickFix : ValidDeclarationTypeQuickFixBase<IAttributesOwnerDeclaration>
     {
-        public MissingSerializationAttributeQuickFix([NotNull] MissingSerializationAttributeHighlighting highlighting) :
+        public MissingSerializationAttributeQuickFix(MissingSerializationAttributeHighlighting highlighting) :
             base(highlighting.TreeNode)
         {
         }
 
         public override string Text => "Add [Serializable] attribute";
 
+        [CanBeNull]
         protected override Action<ITextControl> ExecuteOnDeclaration(IAttributesOwnerDeclaration attributesOwnerDeclaration)
         {
             var elementFactory = CSharpElementFactory.GetInstance(attributesOwnerDeclaration, applyCodeFormatter: true);

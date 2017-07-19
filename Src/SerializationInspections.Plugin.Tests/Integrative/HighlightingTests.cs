@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using JetBrains.Annotations;
 using JetBrains.ReSharper.Feature.Services.Daemon;
 using JetBrains.ReSharper.FeaturesTestFramework.Daemon;
 using JetBrains.ReSharper.Psi;
@@ -13,7 +14,7 @@ namespace SerializationInspections.Plugin.Tests.Integrative
     {
         protected override string RelativeTestDataPath => "Highlighting";
 
-        protected override bool HighlightingPredicate(IHighlighting highlighting, IPsiSourceFile sourceFile)
+        protected override bool HighlightingPredicate([NotNull] IHighlighting highlighting, [CanBeNull] IPsiSourceFile sourceFile)
         {
             return highlighting is SerializationHighlightingBase;
         }

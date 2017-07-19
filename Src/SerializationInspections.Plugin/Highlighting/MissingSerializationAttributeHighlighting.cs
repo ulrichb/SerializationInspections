@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using JetBrains.ReSharper.Feature.Services.Daemon;
 using JetBrains.ReSharper.Psi.Tree;
 using SerializationInspections.Plugin.Highlighting;
@@ -24,7 +23,7 @@ namespace SerializationInspections.Plugin.Highlighting
         private const string Message = "{0} should be marked with the [Serializable] attribute";
         public const string Description = Title;
 
-        public MissingSerializationAttributeHighlighting([NotNull] ITypeDeclaration typeDeclaration, [NotNull] string elementDescription)
+        public MissingSerializationAttributeHighlighting(ITypeDeclaration typeDeclaration, string elementDescription)
             : base(typeDeclaration, string.Format(Message, elementDescription))
         {
         }

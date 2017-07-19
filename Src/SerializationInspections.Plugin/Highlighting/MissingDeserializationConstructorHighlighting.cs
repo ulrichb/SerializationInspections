@@ -1,5 +1,4 @@
-﻿using JetBrains.Annotations;
-using JetBrains.ReSharper.Feature.Services.Daemon;
+﻿using JetBrains.ReSharper.Feature.Services.Daemon;
 using JetBrains.ReSharper.Psi.Tree;
 using SerializationInspections.Plugin.Highlighting;
 
@@ -24,7 +23,7 @@ namespace SerializationInspections.Plugin.Highlighting
         private const string Message = "Missing deserialization constructor";
         public const string Description = Title;
 
-        public MissingDeserializationConstructorHighlighting([NotNull] ITypeDeclaration typeDeclaration)
+        public MissingDeserializationConstructorHighlighting(ITypeDeclaration typeDeclaration)
             : base(typeDeclaration, Message)
         {
         }

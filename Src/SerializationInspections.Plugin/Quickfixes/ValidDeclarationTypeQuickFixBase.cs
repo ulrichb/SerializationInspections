@@ -29,6 +29,7 @@ namespace SerializationInspections.Plugin.Quickfixes
             return GetValidDeclarationOrNull() != null;
         }
 
+        [CanBeNull]
         protected override Action<ITextControl> ExecutePsiTransaction(ISolution solution, IProgressIndicator progress)
         {
             var validDeclaration = GetValidDeclarationOrNull().NotNull( /* ensured by IsAvailable() */);
@@ -37,7 +38,7 @@ namespace SerializationInspections.Plugin.Quickfixes
         }
 
         [CanBeNull]
-        protected abstract Action<ITextControl> ExecuteOnDeclaration([NotNull] TDeclaration declaration);
+        protected abstract Action<ITextControl> ExecuteOnDeclaration(TDeclaration declaration);
 
         [CanBeNull]
         private TDeclaration GetValidDeclarationOrNull()

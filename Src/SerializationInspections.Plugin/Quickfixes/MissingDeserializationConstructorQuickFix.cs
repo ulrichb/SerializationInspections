@@ -19,13 +19,14 @@ namespace SerializationInspections.Plugin.Quickfixes
     [QuickFix]
     public class MissingDeserializationConstructorQuickFix : ValidDeclarationTypeQuickFixBase<IClassLikeDeclaration>
     {
-        public MissingDeserializationConstructorQuickFix([NotNull] MissingDeserializationConstructorHighlighting highlighting) :
+        public MissingDeserializationConstructorQuickFix(MissingDeserializationConstructorHighlighting highlighting) :
             base(highlighting.TreeNode)
         {
         }
 
         public override string Text => "Create deserialization constructor";
 
+        [CanBeNull]
         protected override Action<ITextControl> ExecuteOnDeclaration(IClassLikeDeclaration classLikeDeclaration)
         {
             var elementFactory = CSharpElementFactory.GetInstance(classLikeDeclaration, applyCodeFormatter: true);
@@ -39,10 +40,10 @@ namespace SerializationInspections.Plugin.Quickfixes
             return textControl => textControl.Caret.MoveTo(offset, CaretVisualPlacement.Generic);
         }
 
-        [NotNull]
+
         private static IConstructorDeclaration CreateDeserializationConstructor(
-            [NotNull] IClassLikeDeclaration classLikeDeclaration,
-            [NotNull] CSharpElementFactory elementFactory)
+            IClassLikeDeclaration classLikeDeclaration,
+            CSharpElementFactory elementFactory)
         {
             var result = elementFactory.CreateConstructorDeclaration();
 
@@ -60,25 +61,20 @@ namespace SerializationInspections.Plugin.Quickfixes
             return result;
         }
 
-        [NotNull]
-        private static IParameterDeclaration AddInfoParameter(
-            [NotNull] IConstructorDeclaration constructorDeclaration,
-            [NotNull] IDeclaration contextDeclaration)
+        private static IParameterDeclaration AddInfoParameter(IConstructorDeclaration constructorDeclaration, IDeclaration contextDeclaration)
         {
             var type = SerializationUtilities.SerializationInfoTypeName.CreateTypeInContextOf(contextDeclaration);
             return constructorDeclaration.AddParameterDeclarationBefore(ParameterKind.VALUE, type, "info", null);
         }
 
-        [NotNull]
-        private static IParameterDeclaration AddContextParameter(
-            [NotNull] IConstructorDeclaration constructorDeclaration,
-            [NotNull] IDeclaration contextDeclaration)
+
+        private static IParameterDeclaration AddContextParameter(IConstructorDeclaration constructorDeclaration, IDeclaration contextDeclaration)
         {
             var type = SerializationUtilities.StreamingContextTypeName.CreateTypeInContextOf(contextDeclaration);
             return constructorDeclaration.AddParameterDeclarationBefore(ParameterKind.VALUE, type, "context", null);
         }
 
-        private static bool HasBaseClassWithDeserializationConstructor([NotNull] IClassLikeDeclaration classLikeDeclaration)
+        private static bool HasBaseClassWithDeserializationConstructor(IClassLikeDeclaration classLikeDeclaration)
         {
             var declaredClass = classLikeDeclaration.DeclaredElement as IClass;
             if (declaredClass == null)
@@ -91,11 +87,11 @@ namespace SerializationInspections.Plugin.Quickfixes
             return SerializationUtilities.HasDeserializationConstructor(superClass);
         }
 
-        [NotNull]
+
         private static IConstructorInitializer CreateBaseConstructorInitializer(
-            [NotNull] CSharpElementFactory elementFactory,
-            [NotNull] IParameterDeclaration infoParameterDeclaration,
-            [NotNull] IParameterDeclaration contextParameterDeclaration)
+            CSharpElementFactory elementFactory,
+            IParameterDeclaration infoParameterDeclaration,
+            IParameterDeclaration contextParameterDeclaration)
         {
             var result = elementFactory.CreateBaseConstructorInitializer();
 

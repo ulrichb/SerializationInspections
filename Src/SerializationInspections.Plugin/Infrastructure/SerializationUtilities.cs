@@ -1,5 +1,4 @@
 using System.Linq;
-using JetBrains.Annotations;
 using JetBrains.Metadata.Reader.Impl;
 using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.Util;
@@ -14,7 +13,7 @@ namespace SerializationInspections.Plugin.Infrastructure
         public static readonly ClrTypeName SerializationInfoTypeName = new ClrTypeName("System.Runtime.Serialization.SerializationInfo");
         public static readonly ClrTypeName StreamingContextTypeName = new ClrTypeName("System.Runtime.Serialization.StreamingContext");
 
-        public static bool HasDeserializationConstructor([NotNull] ITypeElement typeElement)
+        public static bool HasDeserializationConstructor(ITypeElement typeElement)
         {
             return typeElement.Constructors.Any(constructor =>
             {
