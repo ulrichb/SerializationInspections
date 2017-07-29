@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using JetBrains.Annotations;
 using JetBrains.ReSharper.Daemon.Stages.Dispatcher;
 using JetBrains.ReSharper.Feature.Services.Daemon;
 using JetBrains.ReSharper.Psi;
@@ -9,6 +8,7 @@ using JetBrains.ReSharper.Psi.Tree;
 using JetBrains.Util;
 using JetBrains.Util.Logging;
 using ReSharperExtensionsShared.Debugging;
+using ReSharperExtensionsShared.ProblemAnalyzers;
 using SerializationInspections.Plugin.Highlighting;
 using SerializationInspections.Plugin.Infrastructure;
 
@@ -20,7 +20,7 @@ namespace SerializationInspections.Plugin
     [ElementProblemAnalyzer(
         typeof(ITypeDeclaration),
         HighlightingTypes = new[] { typeof(MissingSerializationAttributeHighlighting), typeof(MissingDeserializationConstructorHighlighting) })]
-    public class SerializationInspectionsProblemAnalyzer : ElementProblemAnalyzer<ITypeDeclaration>
+    public class SerializationInspectionsProblemAnalyzer : SimpleElementProblemAnalyzer<ITypeDeclaration, ITypeElement>
     {
         private static readonly ILogger Log = Logger.GetLogger(typeof(SerializationInspectionsProblemAnalyzer));
 
@@ -29,15 +29,17 @@ namespace SerializationInspections.Plugin
             Log.Verbose(".ctor");
         }
 
-        protected override void Run(ITypeDeclaration element, ElementProblemAnalyzerData data, IHighlightingConsumer consumer)
+        protected override void Run(
+            ITypeDeclaration declaration,
+            ITypeElement typeElement,
+            ElementProblemAnalyzerData data,
+            IHighlightingConsumer consumer)
         {
 #if DEBUG
             var stopwatch = Stopwatch.StartNew();
 #endif
 
-            var typeElement = element.DeclaredElement;
-
-            var highlightingResults = HandleTypeElement(element, typeElement).ToList();
+            var highlightingResults = HandleTypeElement(declaration, typeElement).ToList();
 
             highlightingResults.ForEach(x => consumer.AddHighlighting(x));
 
@@ -49,36 +51,33 @@ namespace SerializationInspections.Plugin
 #endif
         }
 
-        private IEnumerable<IHighlighting> HandleTypeElement(ITypeDeclaration declaration, [CanBeNull] ITypeElement typeElement)
+        private IEnumerable<IHighlighting> HandleTypeElement(ITypeDeclaration declaration, ITypeElement typeElement)
         {
-            if (typeElement != null)
+            var serializableAttributeTypeName = PredefinedType.SERIALIZABLE_ATTRIBUTE_CLASS;
+            var serializableAttributeType = serializableAttributeTypeName.CreateTypeInContextOf(declaration);
+
+            // Test if the SerializableAttribute is resolvable (e.g. not the case for Windows Phone targets)
+            if (serializableAttributeType.GetTypeElement() != null)
             {
-                var serializableAttributeTypeName = PredefinedType.SERIALIZABLE_ATTRIBUTE_CLASS;
-                var serializableAttributeType = serializableAttributeTypeName.CreateTypeInContextOf(declaration);
+                var hasSerializableAttribute = typeElement.HasAttributeInstance(serializableAttributeTypeName, inherit: false);
 
-                // Test if the SerializableAttribute is resolvable (e.g. not the case for Windows Phone targets)
-                if (serializableAttributeType.GetTypeElement() != null)
+                if (!hasSerializableAttribute)
                 {
-                    var hasSerializableAttribute = typeElement.HasAttributeInstance(serializableAttributeTypeName, inherit: false);
-
-                    if (!hasSerializableAttribute)
+                    if (IsException(typeElement))
                     {
-                        if (IsException(typeElement))
-                        {
-                            yield return new MissingSerializationAttributeHighlighting(declaration, "Exceptions");
-                        }
-                        else if (IsImplementingSerializableInterface(typeElement) && !(typeElement is IInterface))
-                        {
-                            yield return new MissingSerializationAttributeHighlighting(declaration, "A type implementing ISerializable");
-                        }
+                        yield return new MissingSerializationAttributeHighlighting(declaration, "Exceptions");
                     }
-
-                    if (hasSerializableAttribute && IsSerializable(typeElement) && !(typeElement is IDelegate))
+                    else if (IsImplementingSerializableInterface(typeElement) && !(typeElement is IInterface))
                     {
-                        if (!SerializationUtilities.HasDeserializationConstructor(typeElement))
-                        {
-                            yield return new MissingDeserializationConstructorHighlighting(declaration);
-                        }
+                        yield return new MissingSerializationAttributeHighlighting(declaration, "A type implementing ISerializable");
+                    }
+                }
+
+                if (hasSerializableAttribute && IsSerializable(typeElement) && !(typeElement is IDelegate))
+                {
+                    if (!SerializationUtilities.HasDeserializationConstructor(typeElement))
+                    {
+                        yield return new MissingDeserializationConstructorHighlighting(declaration);
                     }
                 }
             }
