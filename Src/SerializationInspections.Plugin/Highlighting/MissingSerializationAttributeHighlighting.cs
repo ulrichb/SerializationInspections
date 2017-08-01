@@ -1,4 +1,5 @@
 using JetBrains.ReSharper.Feature.Services.Daemon;
+using JetBrains.ReSharper.Psi.CSharp;
 using JetBrains.ReSharper.Psi.Tree;
 using SerializationInspections.Plugin.Highlighting;
 
@@ -15,7 +16,7 @@ namespace SerializationInspections.Plugin.Highlighting
     /// <summary>
     /// A highlighting for missing serialization attributes.
     /// </summary>
-    [ConfigurableSeverityHighlighting(SeverityId, "CSHARP", OverlapResolve = OverlapResolveKind.WARNING, ToolTipFormatString = Message)]
+    [ConfigurableSeverityHighlighting(SeverityId, CSharpLanguage.Name, OverlapResolve = OverlapResolveKind.WARNING, ToolTipFormatString = Message)]
     public class MissingSerializationAttributeHighlighting : SerializationHighlightingBase
     {
         public const string SeverityId = "MissingSerializationAttribute";
