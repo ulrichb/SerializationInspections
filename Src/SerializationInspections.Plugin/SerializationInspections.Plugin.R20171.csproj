@@ -11,7 +11,8 @@
     <TargetFramework>net45</TargetFramework>
     <RootNamespace>SerializationInspections.Plugin</RootNamespace>
     <EnableDefaultItems>false</EnableDefaultItems>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AssemblyVersion>0.0.0.1</AssemblyVersion>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
     <DebugType>full</DebugType> <!-- necessary for OpenCover -->
@@ -35,7 +36,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="JetBrains.ReSharper.SDK" Version="2017.1.20170428.83402" />
+    <PackageReference Include="JetBrains.ReSharper.SDK" Version="2017.1.20170613.162448" />
   </ItemGroup>
 
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
@@ -44,4 +45,5 @@
     <ReSharperInstallationsDirectoryInstancePart>ExpRS$(ReSharperVersionIdentifier)</ReSharperInstallationsDirectoryInstancePart>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\Shared\Build\CopyToReSharperInstallationsDirectory.targets" />
+
 </Project>
