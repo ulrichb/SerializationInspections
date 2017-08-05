@@ -1,105 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4AF4FFEC-2FAC-426A-B8B2-06F4D9F52392}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SerializationInspections.Sample</RootNamespace>
-    <AssemblyName>SerializationInspections.Sample</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>b8dcf047</NuGetPackageImportStamp>
+    <TargetFramework>net46</TargetFramework>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="nunit.framework">
-      <HintPath>..\..\..\..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <Compile Remove="Highlighting\NoMsCorLib\**\*.cs" />
+    <None Include="Highlighting\NoMsCorLib\**\*.cs" />
+
+    <Compile Remove="QuickFixes\*\**\*.cs" />
+    <None Include="QuickFixes\*\**\*.cs" />
   </ItemGroup>
+
   <ItemGroup>
-    <None Include="Highlighting\NoMsCorLib\NoMsCorlib.cs" />
-    <None Include="Highlighting\NoMsCorLib\NoMsCorlib.cs.gold" />
-    <None Include="Highlighting\NoMsCorLib\NoMsCorlibButOwnSerializableAttribute.cs" />
-    <Compile Include="Highlighting\ExceptionHierarchy.cs" />
-    <Compile Include="Highlighting\Exception.cs" />
-    <Compile Include="QuickFixes\Availability.cs" />
-    <None Include="Highlighting\NoMsCorLib\NoMsCorlibButOwnSerializableAttribute.cs.gold" />
-    <None Include="nuget.config" />
-    <None Include="packages.config" />
-    <None Include="QuickFixes\MissingDeserializationConstructorQuickFix\CustomSerializable.cs" />
-    <None Include="QuickFixes\MissingDeserializationConstructorQuickFix\CustomSerializableWithPrivateDeserializationConstructorInBase.cs.gold" />
-    <None Include="QuickFixes\MissingDeserializationConstructorQuickFix\CustomSerializableStruct.cs" />
-    <None Include="QuickFixes\MissingDeserializationConstructorQuickFix\CustomSerializableWithPrivateDeserializationConstructorInBase.cs" />
-    <None Include="QuickFixes\MissingDeserializationConstructorQuickFix\CustomSerializable.cs.gold" />
-    <None Include="QuickFixes\MissingDeserializationConstructorQuickFix\CustomSerializableStruct.cs.gold" />
-    <None Include="QuickFixes\MissingDeserializationConstructorQuickFix\ExceptionWithExistingMembers.cs" />
-    <None Include="QuickFixes\MissingDeserializationConstructorQuickFix\ExceptionClass.cs" />
-    <None Include="QuickFixes\Availability.cs.gold" />
-    <None Include="QuickFixes\MissingDeserializationConstructorQuickFix\ExceptionClass.cs.gold" />
-    <None Include="QuickFixes\MissingDeserializationConstructorQuickFix\ExceptionWithExistingMembers.cs.gold" />
-    <None Include="QuickFixes\MissingSerializationAttribute\ExceptionWithExistingAttributes.cs" />
-    <None Include="Highlighting\Exception.cs.gold" />
-    <None Include="Highlighting\ExceptionHierarchy.cs.gold" />
-    <None Include="Highlighting\OtherUnaffectedTypes.cs.gold" />
-    <None Include="QuickFixes\MissingSerializationAttribute\ExceptionClass.cs" />
-    <Compile Include="Highlighting\SerializableInterfaceHierarchy.cs" />
-    <Compile Include="Highlighting\OtherUnaffectedTypes.cs" />
-    <Compile Include="Highlighting\SerializableInterface.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Highlighting\SerializableInterfaceOnStruct.cs" />
-    <Compile Include="Highlighting\Tests\ExceptionTests.cs" />
-    <Compile Include="Highlighting\Tests\SerializableInterfaceOnStructTests.cs" />
-    <Compile Include="Highlighting\Tests\SerializableInterfaceTests.cs" />
-    <Compile Include="Highlighting\Tests\SerializationTestBase.cs" />
-    <None Include="QuickFixes\MissingSerializationAttribute\ExceptionClass.cs.gold" />
-    <None Include="Highlighting\SerializableInterface.cs.gold" />
-    <None Include="Highlighting\SerializableInterfaceHierarchy.cs.gold" />
-    <None Include="Highlighting\SerializableInterfaceOnStruct.cs.gold" />
-    <None Include="QuickFixes\MissingSerializationAttribute\ExceptionWithExistingAttributes.cs.gold" />
+    <PackageReference Include="JetBrains.Annotations" Version="11.*" />
+    <PackageReference Include="NUnit" Version="3.*" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>
