@@ -1,16 +1,9 @@
-﻿<Project>
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <ReSharperVersionIdentifier>20171</ReSharperVersionIdentifier>
 
-    <!-- This is a workaround for https://github.com/dotnet/sdk/issues/980: -->
-    <BaseIntermediateOutputPath>obj\R$(ReSharperVersionIdentifier)\</BaseIntermediateOutputPath>
-  </PropertyGroup>
-  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
-
-  <PropertyGroup>
     <TargetFramework>net45</TargetFramework>
-    <RootNamespace>SerializationInspections.Plugin.Tests</RootNamespace>
-    <EnableDefaultItems>false</EnableDefaultItems>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
     <DebugType>full</DebugType> <!-- necessary for OpenCover -->
@@ -18,16 +11,17 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>TRACE;DEBUG;NET45;JET_MODE_ASSERT;RESHARPER$(ReSharperVersionIdentifier)</DefineConstants>
-    <OutputPath>bin\R$(ReSharperVersionIdentifier)\Debug\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DefineConstants>TRACE;RELEASE;NET45;RESHARPER$(ReSharperVersionIdentifier)</DefineConstants>
-    <OutputPath>bin\R$(ReSharperVersionIdentifier)\Release\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="**\*.cs" Exclude="obj\**;test\data\**" />
+    <Compile Remove="test\data\**" />
+    <None Remove="test\data\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,9 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SerializationInspections.Plugin\SerializationInspections.Plugin.R$(ReSharperVersionIdentifier).csproj" />
+    <ProjectReference Include="..\SerializationInspections.Plugin\SerializationInspections.Plugin.csproj" />
   </ItemGroup>
-
-  <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
 
 </Project>
