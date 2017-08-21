@@ -20,7 +20,7 @@ namespace SerializationInspections.Plugin.Tests
     }
 }
 
-// ReSharper disable once CheckNamespace
+// Note: Global namespace to workaround (or hide) https://youtrack.jetbrains.com/issue/RSRP-464493.
 [SetUpFixture]
 public class TestEnvironmentSetUpFixture : ExtensionTestEnvironmentAssembly<ISerializationInspectionsTestEnvironmentZone>
 {
