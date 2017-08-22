@@ -16,6 +16,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="SerializationInspections.Plugin\$BinDirInclude$\$Configuration$\SerializationInspections.Plugin.*" target="dotFiles" />
+    <file src="$BinDirInclude$\$Configuration$\SerializationInspections.Plugin.*" target="dotFiles" />
   </files>
 </package>

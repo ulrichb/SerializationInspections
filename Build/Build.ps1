@@ -9,6 +9,7 @@ Param(
 )
 
 Set-StrictMode -Version 2.0; $ErrorActionPreference = "Stop"; $ConfirmPreference = "None"
+trap { $error[0] | Format-List -Force; $host.SetShouldExit(1) }
 
 . Shared\Build\BuildFunctions
 
@@ -22,7 +23,7 @@ $NUnitTestAssemblyPaths = @(
 )
 $NUnitFrameworkVersion = "net-4.5"
 $TestCoverageFilter = "+[SerializationInspections*]* -[SerializationInspections*]ReSharperExtensionsShared.* -[SerializationInspections.Sample]*"
-$NuspecPath = "Src\SerializationInspections.nuspec"
+$NuspecPath = "Src\SerializationInspections.Plugin\SerializationInspections.nuspec"
 $NugetPackProperties = @(
     "Version=$(CalcNuGetPackageVersion 20171);Configuration=$Configuration;DependencyVer=[8.0];BinDirInclude=bin"
 )
