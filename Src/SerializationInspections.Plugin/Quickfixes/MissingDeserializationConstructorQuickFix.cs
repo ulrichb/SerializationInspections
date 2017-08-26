@@ -76,15 +76,16 @@ namespace SerializationInspections.Plugin.Quickfixes
 
         private static bool HasBaseClassWithDeserializationConstructor(IClassLikeDeclaration classLikeDeclaration)
         {
-            var declaredClass = classLikeDeclaration.DeclaredElement as IClass;
-            if (declaredClass == null)
-                return false;
+            if (classLikeDeclaration.DeclaredElement is IClass declaredClass)
+            {
+                var superClass = declaredClass.GetSuperClass().NotNull("It's unexpected that the highlighting is displayed on System.Object");
 
-            var superClass = declaredClass.GetSuperClass().NotNull("It's unexpected that the highlighting is displayed on System.Object");
+                // NOTE: Yes, this will also return true if the base deserialization constructor is private/internal (which means that 
+                // there is probably an issue). But it may be better to leave non-compilable code than having the missing base call.
+                return SerializationUtilities.HasDeserializationConstructor(superClass);
+            }
 
-            // NOTE: Yes, this will also return true if the base deserialization constructor is private/internal (which means that 
-            // there is probably an issue). But it may be better to leave non-compilable code than having the missing base call.
-            return SerializationUtilities.HasDeserializationConstructor(superClass);
+            return false;
         }
 
 
