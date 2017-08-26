@@ -1,13 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using JetBrains.ReSharper.Daemon.Stages.Dispatcher;
 using JetBrains.ReSharper.Feature.Services.Daemon;
 using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.Tree;
 using JetBrains.Util;
 using JetBrains.Util.Logging;
-using ReSharperExtensionsShared.Debugging;
 using ReSharperExtensionsShared.ProblemAnalyzers;
 using SerializationInspections.Plugin.Highlighting;
 using SerializationInspections.Plugin.Infrastructure;
@@ -35,20 +32,10 @@ namespace SerializationInspections.Plugin
             ElementProblemAnalyzerData data,
             IHighlightingConsumer consumer)
         {
-#if DEBUG
-            var stopwatch = Stopwatch.StartNew();
-#endif
-
-            var highlightingResults = HandleTypeElement(declaration, typeElement).ToList();
-
-            highlightingResults.ForEach(x => consumer.AddHighlighting(x));
-
-#if DEBUG
-            var message = DebugUtility.FormatIncludingContext(typeElement) + " => ["
-                          + string.Join(", ", highlightingResults.Select(x => x.GetType().Name)) + "]";
-
-            Log.Verbose(DebugUtility.FormatWithElapsed(message, stopwatch));
-#endif
+            foreach (var highlighting in HandleTypeElement(declaration, typeElement))
+            {
+                consumer.AddHighlighting(highlighting);
+            }
         }
 
         private IEnumerable<IHighlighting> HandleTypeElement(ITypeDeclaration declaration, ITypeElement typeElement)
