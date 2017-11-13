@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2006
+VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{26B55A35-CCB1-4635-871A-EE770850A5F2}"
 EndProject
@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolutionItems", "SolutionIt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerializationInspections.Sample", "Src\SerializationInspections.Plugin.Tests\test\data\SerializationInspections.Sample.csproj", "{4AF4FFEC-2FAC-426A-B8B2-06F4D9F52392}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerializationInspections.Plugin.R20172", "Src\SerializationInspections.Plugin\SerializationInspections.Plugin.R20172.csproj", "{8A4B1037-2AF1-4872-9D45-4935E2FEF8EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerializationInspections.Plugin.RS20172", "Src\SerializationInspections.Plugin\SerializationInspections.Plugin.RS20172.csproj", "{8A4B1037-2AF1-4872-9D45-4935E2FEF8EA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerializationInspections.Plugin.Tests.R20172", "Src\SerializationInspections.Plugin.Tests\SerializationInspections.Plugin.Tests.R20172.csproj", "{82114976-6FD3-4077-ABE3-B2F11B4823B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerializationInspections.Plugin.Tests.RS20172", "Src\SerializationInspections.Plugin.Tests\SerializationInspections.Plugin.Tests.RS20172.csproj", "{82114976-6FD3-4077-ABE3-B2F11B4823B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,5 +43,8 @@ Global
 		{4AF4FFEC-2FAC-426A-B8B2-06F4D9F52392} = {26B55A35-CCB1-4635-871A-EE770850A5F2}
 		{8A4B1037-2AF1-4872-9D45-4935E2FEF8EA} = {26B55A35-CCB1-4635-871A-EE770850A5F2}
 		{82114976-6FD3-4077-ABE3-B2F11B4823B2} = {26B55A35-CCB1-4635-871A-EE770850A5F2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2B86270B-CE1D-42DA-B5D8-6EB5A4363C34}
 	EndGlobalSection
 EndGlobal
