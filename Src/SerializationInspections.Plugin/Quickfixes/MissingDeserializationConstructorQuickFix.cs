@@ -1,5 +1,7 @@
 ﻿using System;
 using JetBrains.Annotations;
+using JetBrains.Application.Progress;
+using JetBrains.ProjectModel;
 using JetBrains.ReSharper.Feature.Services.QuickFixes;
 using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.CSharp;
@@ -17,18 +19,23 @@ namespace SerializationInspections.Plugin.Quickfixes
     /// with an optional base call.
     /// </summary>
     [QuickFix]
-    public class MissingDeserializationConstructorQuickFix : ValidDeclarationTypeQuickFixBase<IClassLikeDeclaration>
+    public class MissingDeserializationConstructorQuickFix :
+        SimpleQuickFixBase<MissingDeserializationConstructorHighlighting, IClassLikeDeclaration>
     {
         public MissingDeserializationConstructorQuickFix(MissingDeserializationConstructorHighlighting highlighting) :
-            base(highlighting.TreeNode)
+            base(highlighting)
         {
         }
+
+        protected override bool IsAvailable() => true;
 
         public override string Text => "Create deserialization constructor";
 
         [CanBeNull]
-        protected override Action<ITextControl> ExecuteOnDeclaration(IClassLikeDeclaration classLikeDeclaration)
+        protected override Action<ITextControl> ExecutePsiTransaction(ISolution _, IProgressIndicator __)
         {
+            var classLikeDeclaration = Highlighting.TreeNode;
+
             var elementFactory = CSharpElementFactory.GetInstance(classLikeDeclaration, applyCodeFormatter: true);
 
             var constructorDeclaration = CreateDeserializationConstructor(classLikeDeclaration, elementFactory);
@@ -39,7 +46,6 @@ namespace SerializationInspections.Plugin.Quickfixes
 
             return textControl => textControl.Caret.MoveTo(offset, CaretVisualPlacement.Generic);
         }
-
 
         private static IConstructorDeclaration CreateDeserializationConstructor(
             IClassLikeDeclaration classLikeDeclaration,

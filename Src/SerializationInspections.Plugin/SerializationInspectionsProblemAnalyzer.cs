@@ -2,7 +2,7 @@
 using JetBrains.ReSharper.Daemon.Stages.Dispatcher;
 using JetBrains.ReSharper.Feature.Services.Daemon;
 using JetBrains.ReSharper.Psi;
-using JetBrains.ReSharper.Psi.Tree;
+using JetBrains.ReSharper.Psi.CSharp.Tree;
 using JetBrains.Util;
 using JetBrains.Util.Logging;
 using ReSharperExtensionsShared.ProblemAnalyzers;
@@ -15,9 +15,13 @@ namespace SerializationInspections.Plugin
     /// A problem analyzer for the serialization inspections.
     /// </summary>
     [ElementProblemAnalyzer(
-        typeof(ITypeDeclaration),
-        HighlightingTypes = new[] { typeof(MissingSerializationAttributeHighlighting), typeof(MissingDeserializationConstructorHighlighting) })]
-    public class SerializationInspectionsProblemAnalyzer : SimpleElementProblemAnalyzer<ITypeDeclaration, ITypeElement>
+        typeof(IClassLikeDeclaration),
+        HighlightingTypes = new[]
+        {
+            typeof(MissingSerializationAttributeHighlighting),
+            typeof(MissingDeserializationConstructorHighlighting)
+        })]
+    public class SerializationInspectionsProblemAnalyzer : SimpleElementProblemAnalyzer<IClassLikeDeclaration, ITypeElement>
     {
         private static readonly ILogger Log = Logger.GetLogger(typeof(SerializationInspectionsProblemAnalyzer));
 
@@ -27,7 +31,7 @@ namespace SerializationInspections.Plugin
         }
 
         protected override void Run(
-            ITypeDeclaration declaration,
+            IClassLikeDeclaration declaration,
             ITypeElement typeElement,
             ElementProblemAnalyzerData data,
             IHighlightingConsumer consumer)
@@ -38,7 +42,7 @@ namespace SerializationInspections.Plugin
             }
         }
 
-        private IEnumerable<IHighlighting> HandleTypeElement(ITypeDeclaration declaration, ITypeElement typeElement)
+        private IEnumerable<IHighlighting> HandleTypeElement(IClassLikeDeclaration declaration, ITypeElement typeElement)
         {
             var serializableAttributeTypeName = PredefinedType.SERIALIZABLE_ATTRIBUTE_CLASS;
             var serializableAttributeType = serializableAttributeTypeName.CreateTypeInContextOf(declaration);
