@@ -9,6 +9,7 @@ using JetBrains.ReSharper.Psi.CSharp.Tree;
 using JetBrains.ReSharper.Psi.Tree;
 using JetBrains.TextControl;
 using JetBrains.Util;
+using ReSharperExtensionsShared.QuickFixes;
 using SerializationInspections.Plugin.Highlighting;
 using SerializationInspections.Plugin.Infrastructure;
 
@@ -27,7 +28,7 @@ namespace SerializationInspections.Plugin.Quickfixes
         {
         }
 
-        protected override bool IsAvailable() => true;
+        protected override bool IsAvailableForTreeNode(IUserDataHolder cache) => true;
 
         public override string Text => "Create deserialization constructor";
 

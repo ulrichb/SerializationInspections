@@ -8,6 +8,7 @@ using JetBrains.ReSharper.Psi.CSharp;
 using JetBrains.ReSharper.Psi.CSharp.Tree;
 using JetBrains.TextControl;
 using JetBrains.Util;
+using ReSharperExtensionsShared.QuickFixes;
 using SerializationInspections.Plugin.Highlighting;
 using SerializationInspections.Plugin.Infrastructure;
 
@@ -27,7 +28,7 @@ namespace SerializationInspections.Plugin.Quickfixes
 
         public override string Text => "Add [Serializable] attribute";
 
-        protected override bool IsAvailable() => true;
+        protected override bool IsAvailableForTreeNode(IUserDataHolder cache) => true;
 
         [CanBeNull]
         protected override Action<ITextControl> ExecutePsiTransaction(ISolution _, IProgressIndicator __)
