@@ -35,7 +35,7 @@ namespace SerializationInspections.Plugin.Quickfixes
         [CanBeNull]
         protected override Action<ITextControl> ExecutePsiTransaction(ISolution _, IProgressIndicator __)
         {
-            var classLikeDeclaration = Highlighting.TreeNode;
+            var classLikeDeclaration = Highlighting.HighlightingNode;
 
             var elementFactory = CSharpElementFactory.GetInstance(classLikeDeclaration, applyCodeFormatter: true);
 

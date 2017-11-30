@@ -15,6 +15,6 @@ namespace SerializationInspections.Plugin.Highlighting
         {
         }
 
-        public override DocumentRange CalculateRange() => TreeNode.GetNameDocumentRange();
+        public override DocumentRange CalculateRange() => HighlightingNode.GetNameDocumentRange();
     }
 }
