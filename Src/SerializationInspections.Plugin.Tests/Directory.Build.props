@@ -14,11 +14,9 @@
 
   <PropertyGroup>
     <DefineConstants>$(DefineConstants);$(ReSharperVersionIdentifier)</DefineConstants>
+    <DefineConstants Condition="$(ReSharperVersionIdentifier.StartsWith('RS'))">$(DefineConstants);RESHARPER</DefineConstants>
+    <DefineConstants Condition="$(ReSharperVersionIdentifier.StartsWith('RD'))">$(DefineConstants);RIDER</DefineConstants>
     <DefineConstants Condition="'$(Configuration)'=='Debug'">$(DefineConstants);JET_MODE_ASSERT</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <DefaultItemExcludes>$(DefaultItemExcludes);test\data\**</DefaultItemExcludes>
   </PropertyGroup>
 
 </Project>
