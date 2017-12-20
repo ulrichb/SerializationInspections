@@ -1,3 +1,5 @@
+:warning: This extension isn't maintained anymore. If you are interesed to become the new maintainer, please contact me in the Gitter chat.
+
 # Serialization Inspections ReSharper Extension
 
 [![Build status](https://teamcity.jetbrains.com/app/rest/builds/buildType:(id:OpenSourceProjects_SerializationInspections_Ci),branch:master,running:any/statusIcon.svg)](https://teamcity.jetbrains.com/viewType.html?buildTypeId=OpenSourceProjects_SerializationInspections_Ci)
