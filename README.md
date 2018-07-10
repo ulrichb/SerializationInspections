@@ -1,4 +1,4 @@
-:warning: This extension isn't maintained anymore. If you are interesed to become the new maintainer, please contact me in the Gitter chat.
+:warning: This extension isn't maintained anymore here but has found a new home at [matkoch/SerializationInspections](https://github.com/matkoch/SerializationInspections/) :heart:
 
 # Serialization Inspections ReSharper Extension
 
